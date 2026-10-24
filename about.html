@@ -38,6 +38,52 @@
         background: linear-gradient(180deg, transparent 48%, rgba(9,38,83,.62));
         pointer-events: none;
       }
+
+      @keyframes hero-rise {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes hero-fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes hero-drift {
+        from { transform: scale(1.01) translate3d(0, 0, 0); }
+        to { transform: scale(1.035) translate3d(-10px, -6px, 0); }
+      }
+
+      .hero-load { animation: hero-rise 700ms cubic-bezier(.22, 1, .36, 1) both; }
+      .hero-panel-load { animation: hero-fade 700ms ease both; }
+      .hero-load-delay-1 { animation-delay: 100ms; }
+      .hero-load-delay-2 { animation-delay: 220ms; }
+      .hero-load-delay-3 { animation-delay: 360ms; }
+      .hero-image-motion { animation: hero-drift 12s ease-in-out infinite alternate; }
+
+      .motion-ready [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, 1, .36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      .motion-ready [data-reveal="left"] { transform: translateX(-28px); }
+      .motion-ready [data-reveal="right"] { transform: translateX(28px); }
+      .motion-ready [data-reveal].is-visible { opacity: 1; transform: translate(0); }
+      .motion-ready [data-reveal-delay="1"] { --reveal-delay: 80ms; }
+      .motion-ready [data-reveal-delay="2"] { --reveal-delay: 160ms; }
+      .motion-ready [data-reveal-delay="3"] { --reveal-delay: 240ms; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .hero-load, .hero-panel-load, .hero-image-motion { animation: none; }
+        .motion-ready [data-reveal], .motion-ready [data-reveal].is-visible {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -45,7 +91,7 @@
       <section class="roof-lines relative overflow-hidden bg-ink pb-16 text-white sm:pb-20 lg:min-h-[760px] lg:pb-24">
         <div class="pointer-events-none absolute -right-24 top-28 h-96 w-96 rounded-full border-[75px] border-electric/10"></div>
         <div class="pointer-events-none absolute -bottom-44 left-[34%] h-96 w-96 rounded-full bg-brand/40 blur-3xl"></div>
-        <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/70 bg-white/70 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
+        <header class="hero-load relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/70 bg-white/70 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
           <a href="index.html" class="flex shrink-0 items-center" aria-label="Wakatendeka home">
             <img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-12 w-auto object-contain sm:h-14">
           </a>
@@ -78,18 +124,18 @@
         </div>
 
         <div class="relative mx-auto grid max-w-[1320px] gap-10 px-5 pt-12 sm:px-10 sm:pt-16 lg:grid-cols-[.86fr_1.14fr] lg:items-center lg:gap-16 lg:px-10 lg:pt-20 xl:px-0">
-          <div class="relative z-10">
-            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#72b9ff]"><span class="h-2 w-2 rounded-full bg-roofing"></span>About Wakatendeka</span>
-            <h1 class="mt-5 max-w-[620px] text-[48px] font-semibold leading-[.96] tracking-[-0.055em] text-white sm:text-[64px] lg:text-[76px]">Materials for the roof over your project.</h1>
-            <p class="mt-7 max-w-[610px] text-lg leading-8 text-white/68 sm:text-xl">Wakatendeka Roofing and Building Supplies is a roofing and building-materials business in Nyakamete, Mutare. We help customers enquire about IBR roofing sheets, Q Tiles and concrete nails for their projects.</p>
-            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div class="hero-panel-load relative z-10">
+            <span class="hero-load hero-load-delay-1 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#72b9ff]"><span class="h-2 w-2 rounded-full bg-roofing"></span>About Wakatendeka</span>
+            <h1 class="hero-load hero-load-delay-2 mt-5 max-w-[620px] text-[48px] font-semibold leading-[.96] tracking-[-0.055em] text-white sm:text-[64px] lg:text-[76px]">Materials for the roof over your project.</h1>
+            <p class="hero-load hero-load-delay-3 mt-7 max-w-[610px] text-lg leading-8 text-white/68 sm:text-xl">Wakatendeka Roofing and Building Supplies is a roofing and building-materials business in Nyakamete, Mutare. We help customers enquire about IBR roofing sheets, Q Tiles and concrete nails for their projects.</p>
+            <div class="hero-load hero-load-delay-3 mt-9 flex flex-col gap-3 sm:flex-row">
               <a href="contact.html#quote" class="brand-button inline-flex min-h-14 items-center justify-center gap-3 rounded-full px-7 font-bold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">Request a quote</a>
               <a href="services.html" class="inline-flex min-h-14 items-center justify-center rounded-full border border-brand/25 bg-white/60 px-7 font-bold text-brand transition hover:border-brand hover:bg-white">View products</a>
             </div>
           </div>
 
           <div class="hero-photo relative min-h-[420px] overflow-hidden rounded-[32px_32px_8px_32px] bg-brand shadow-[0_28px_70px_rgba(9,38,83,.2)] sm:min-h-[520px] lg:min-h-[570px]">
-            <img src="Modern Zimbabwean Home With Blue Roof.png" alt="Illustrative modern home with blue roofing" class="absolute inset-0 h-full w-full object-cover object-[67%_center]">
+            <img src="Modern Zimbabwean Home With Blue Roof.png" alt="Illustrative modern home with blue roofing" class="hero-image-motion absolute inset-0 h-full w-full object-cover object-[67%_center]">
             <div class="absolute bottom-6 left-6 z-10 max-w-[280px] border-l-2 border-[#72b9ff] pl-4 text-sm leading-6 text-white/80 sm:bottom-8 sm:left-8">Roofing imagery is illustrative. Ask our team about current products, colours and finishes.</div>
           </div>
         </div>
@@ -98,27 +144,27 @@
       <section class="bg-white px-5 py-20 sm:px-10 lg:py-28" aria-labelledby="supply-title">
         <div class="mx-auto max-w-[1180px]">
           <div class="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
-            <div>
+            <div data-reveal="left">
               <span class="section-kicker">What we supply</span>
               <h2 id="supply-title" class="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl">Three clear product categories.</h2>
             </div>
-            <p class="max-w-2xl text-lg leading-8 text-ink/65 sm:text-xl">Start with the material your project needs. Our team can tell you about the sizes, finishes, colours and pack quantities currently available.</p>
+            <p class="max-w-2xl text-lg leading-8 text-ink/65 sm:text-xl" data-reveal="right">Start with the material your project needs. Our team can tell you about the sizes, finishes, colours and pack quantities currently available.</p>
           </div>
 
           <div class="mt-14 grid border-y border-[#d9e4f3] lg:grid-cols-3 lg:divide-x lg:divide-[#d9e4f3]">
-            <article class="border-b border-[#d9e4f3] py-8 lg:border-b-0 lg:pr-9">
+            <article class="border-b border-[#d9e4f3] py-8 lg:border-b-0 lg:pr-9" data-reveal data-reveal-delay="1">
               <div class="h-1 w-16 bg-electric"></div>
               <h3 class="mt-7 text-2xl font-bold">IBR Roofing Sheets</h3>
               <p class="mt-4 text-lg leading-8 text-ink/60">Profiled metal sheets commonly used for roof coverage. Ask about the current dimensions, colours and finishes.</p>
               <a href="contact.html#quote" class="mt-7 inline-flex font-bold text-brand hover:text-electric">Ask about IBR sheets</a>
             </article>
-            <article class="border-b border-[#d9e4f3] py-8 lg:border-b-0 lg:px-9">
+            <article class="border-b border-[#d9e4f3] py-8 lg:border-b-0 lg:px-9" data-reveal data-reveal-delay="2">
               <div class="h-1 w-16 bg-roofing"></div>
               <h3 class="mt-7 text-2xl font-bold">Q Tiles</h3>
               <p class="mt-4 text-lg leading-8 text-ink/60">Tile-profile roofing for customers considering a tile-like roof appearance. Confirm available profiles and colours with us.</p>
               <a href="contact.html#quote" class="mt-7 inline-flex font-bold text-brand hover:text-electric">Ask about Q Tiles</a>
             </article>
-            <article class="py-8 lg:pl-9">
+            <article class="py-8 lg:pl-9" data-reveal data-reveal-delay="3">
               <div class="h-1 w-16 bg-ink"></div>
               <h3 class="mt-7 text-2xl font-bold">Concrete Nails</h3>
               <p class="mt-4 text-lg leading-8 text-ink/60">Fasteners intended for hard masonry surfaces. Ask which sizes and pack quantities are currently in stock.</p>
@@ -130,28 +176,28 @@
 
       <section class="overflow-hidden bg-ink px-5 py-20 text-white sm:px-10 lg:py-28" aria-labelledby="process-title">
         <div class="mx-auto grid max-w-[1320px] gap-14 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
-          <div>
+          <div data-reveal="left">
             <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#72b9ff]"><span class="h-2 w-2 rounded-full bg-roofing"></span>How we help</span>
             <h2 id="process-title" class="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl">A practical route from question to quotation.</h2>
             <p class="mt-6 max-w-xl text-lg leading-8 text-white/65 sm:text-xl">The more project detail you share, the more useful the first response can be.</p>
           </div>
-          <ol class="grid gap-x-10 gap-y-9 sm:grid-cols-2">
-            <li class="border-t border-white/20 pt-6">
+          <ol class="grid gap-x-10 gap-y-9 sm:grid-cols-2" data-reveal="right">
+            <li class="border-t border-white/20 pt-6" data-reveal data-reveal-delay="1">
               <span class="text-sm font-bold text-[#72b9ff]">01</span>
               <h3 class="mt-3 text-2xl font-bold">Name the product</h3>
               <p class="mt-3 text-lg leading-8 text-white/60">Tell us whether you need IBR sheets, Q Tiles or concrete nails.</p>
             </li>
-            <li class="border-t border-white/20 pt-6">
+            <li class="border-t border-white/20 pt-6" data-reveal data-reveal-delay="2">
               <span class="text-sm font-bold text-[#72b9ff]">02</span>
               <h3 class="mt-3 text-2xl font-bold">Share your requirements</h3>
               <p class="mt-3 text-lg leading-8 text-white/60">Include measurements, quantity, preferred colour and project location if known.</p>
             </li>
-            <li class="border-t border-white/20 pt-6">
+            <li class="border-t border-white/20 pt-6" data-reveal data-reveal-delay="3">
               <span class="text-sm font-bold text-[#72b9ff]">03</span>
               <h3 class="mt-3 text-2xl font-bold">Confirm current options</h3>
               <p class="mt-3 text-lg leading-8 text-white/60">Ask the team about available sizes, finishes, stock and pricing.</p>
             </li>
-            <li class="border-t border-roofing pt-6">
+            <li class="border-t border-roofing pt-6" data-reveal data-reveal-delay="1">
               <span class="text-sm font-bold text-[#ff8f85]">04</span>
               <h3 class="mt-3 text-2xl font-bold">Receive a quotation</h3>
               <p class="mt-3 text-lg leading-8 text-white/60">Review the quotation and speak with the team about the next step for your order.</p>
@@ -162,7 +208,7 @@
 
       <section class="bg-[#f6f9fd] px-5 py-20 sm:px-10 lg:py-28">
         <div class="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-          <div>
+          <div data-reveal="left">
             <div class="overflow-hidden rounded-[8px_32px_32px_32px] bg-[#dcecff] shadow-[0_24px_65px_rgba(9,38,83,.15)]">
               <img src="roofing-house.png" alt="Illustrative home with metal roofing" class="block h-auto w-full">
             </div>
@@ -171,7 +217,7 @@
               <p class="mt-2 text-xl font-semibold leading-8 text-ink">8 Swanesa Close<br>Nyakamete, Mutare</p>
             </div>
           </div>
-          <div>
+          <div data-reveal="right">
             <span class="section-kicker">Clear information</span>
             <h2 class="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl">Know what you need before you commit.</h2>
             <p class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">We keep the first conversation focused on your product, quantity, dimensions and preferred finish. Contact the team directly to confirm current availability and receive a quotation for your requirements.</p>
@@ -188,22 +234,22 @@
       <section class="bg-white px-5 py-20 sm:px-10 lg:py-28">
         <div class="mx-auto max-w-[1320px]">
           <div class="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
-            <div>
+            <div data-reveal="left">
               <span class="section-kicker">How it works</span>
               <h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">From product to quotation in three clear steps.</h2>
             </div>
-            <div class="grid gap-6 sm:grid-cols-3">
-              <div class="border-l-2 border-electric pl-5">
+            <div class="grid gap-6 sm:grid-cols-3" data-reveal="right">
+              <div class="border-l-2 border-electric pl-5" data-reveal data-reveal-delay="1">
                 <span class="text-xs font-bold uppercase tracking-widest text-brand">Step one</span>
                 <h3 class="mt-2 text-xl font-bold">Choose a product</h3>
                 <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">IBR sheets, Q Tiles or concrete nails.</p>
               </div>
-              <div class="border-l-2 border-electric pl-5">
+              <div class="border-l-2 border-electric pl-5" data-reveal data-reveal-delay="2">
                 <span class="text-xs font-bold uppercase tracking-widest text-brand">Step two</span>
                 <h3 class="mt-2 text-xl font-bold">Share requirements</h3>
                 <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">Quantity, measurements, colour and project location.</p>
               </div>
-              <div class="border-l-2 border-roofing pl-5">
+              <div class="border-l-2 border-roofing pl-5" data-reveal data-reveal-delay="3">
                 <span class="text-xs font-bold uppercase tracking-widest text-roofing">Step three</span>
                 <h3 class="mt-2 text-xl font-bold">Contact the team</h3>
                 <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">Confirm current options and receive a quotation.</p>
@@ -215,12 +261,12 @@
 
       <section class="bg-white px-5 py-20 sm:px-10 lg:py-28">
         <div class="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[.65fr_1.35fr]">
-          <div>
+          <div data-reveal="left">
             <span class="section-kicker">Common questions</span>
             <h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">A useful answer before you enquire.</h2>
             <p class="mt-5 text-lg leading-8 text-ink/60 sm:text-xl">For current sizes, colours, stock and prices, speak directly to our team.</p>
           </div>
-          <div class="divide-y divide-[#d9e4f3] border-y border-[#d9e4f3]">
+          <div class="divide-y divide-[#d9e4f3] border-y border-[#d9e4f3]" data-reveal="right">
             <details class="group py-6" open>
               <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">Which roofing profiles do you sell?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary>
               <p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Wakatendeka's confirmed categories are IBR Roofing Sheets and Q Tiles, alongside Concrete Nails. Ask the team about the options currently available.</p>
@@ -238,16 +284,16 @@
       </section>
 
       <section id="quote" class="bg-[#092653] px-5 py-8 text-white sm:px-10">
-        <div class="relative mx-auto max-w-[1320px] overflow-hidden rounded-[32px] bg-brand px-6 py-14 sm:px-10 lg:px-16 lg:py-20">
+        <div class="relative mx-auto max-w-[1320px] overflow-hidden rounded-[32px] bg-brand px-6 py-14 sm:px-10 lg:px-16 lg:py-20" data-reveal>
           <div class="absolute -right-20 -top-32 h-96 w-96 rounded-full border-[70px] border-white/10"></div>
           <div class="absolute -bottom-32 right-[28%] h-72 w-72 rounded-full bg-electric/30 blur-3xl"></div>
           <div class="relative z-10 grid gap-12 lg:grid-cols-[1fr_.85fr] lg:items-end">
-            <div>
+            <div data-reveal="left">
               <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/70"><span class="h-2 w-2 rounded-full bg-roofing"></span>Start an enquiry</span>
               <h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.03] tracking-[-0.04em] sm:text-5xl lg:text-6xl">Ready to plan your roof?</h2>
               <p class="mt-5 max-w-2xl text-lg leading-8 text-white/75 sm:text-xl">Tell us which materials you need and we'll help you with the next step.</p>
             </div>
-            <div class="grid gap-3">
+            <div class="grid gap-3" data-reveal="right">
               <a href="tel:0771407179" class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur transition hover:bg-white/20"><span><small class="block uppercase tracking-widest text-white/55">Call us</small><strong class="mt-1 block">0771 407 179 / 0717 154 689</strong></span><span class="text-2xl">↗</span></a>
               <a href="mailto:wakatendekaroofing@gmail.com" class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur transition hover:bg-white/20"><span><small class="block uppercase tracking-widest text-white/55">Email us</small><strong class="mt-1 block break-all">wakatendekaroofing@gmail.com</strong></span><span class="text-2xl">↗</span></a>
               <div class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur"><span><small class="block uppercase tracking-widest text-white/55">Visit us</small><strong class="mt-1 block">8 Swanesa Close, Nyakamete, Mutare</strong></span><span class="text-2xl">⌖</span></div>
