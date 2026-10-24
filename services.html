@@ -34,6 +34,9 @@
           linear-gradient(90deg, rgba(9,38,83,.055) 1px, transparent 1px);
         background-size: 48px 48px;
       }
+      .hero-lines {
+        background-image: repeating-linear-gradient(115deg, transparent 0 38px, rgba(114,185,255,.09) 39px 40px);
+      }
       .product-image::after {
         content: "Illustrative image";
         position: absolute;
@@ -53,7 +56,9 @@
   </head>
   <body>
     <main>
-      <section class="catalogue-grid relative overflow-hidden bg-[#e8f3ff] pb-16 sm:pb-20">
+      <section class="hero-lines relative overflow-hidden bg-ink pb-16 text-white sm:pb-20">
+        <div class="pointer-events-none absolute -right-24 top-28 h-96 w-96 rounded-full border-[75px] border-electric/10"></div>
+        <div class="pointer-events-none absolute -bottom-44 left-[34%] h-96 w-96 rounded-full bg-brand/40 blur-3xl"></div>
         <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/70 bg-white/75 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
           <a href="index.html" class="flex shrink-0 items-center" aria-label="Wakatendeka home"><img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-12 w-auto object-contain sm:h-14"></a>
           <nav class="hidden items-center gap-9 text-[14px] font-medium text-ink/80 lg:flex" aria-label="Main navigation">
@@ -80,12 +85,12 @@
         <div class="relative mx-auto max-w-[1320px] px-5 pt-16 sm:px-10 sm:pt-20 lg:px-10 lg:pt-24 xl:px-0">
           <div class="grid gap-12 lg:grid-cols-[1fr_.72fr] lg:items-end">
             <div>
-              <span class="section-kicker">Product catalogue</span>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#72b9ff]"><span class="h-2 w-2 rounded-full bg-roofing"></span>Product catalogue</span>
               <h1 class="mt-5 max-w-[850px] text-[48px] font-semibold leading-[.96] tracking-[-0.055em] sm:text-[66px] lg:text-[80px]">Roofing materials and building supplies.</h1>
             </div>
             <div class="lg:pb-2">
-              <p class="max-w-xl text-lg leading-8 text-ink/68 sm:text-xl">Browse our main product categories and contact us for current sizes, colours, availability and prices.</p>
-              <p class="mt-4 text-sm leading-6 text-ink/50">Images on this page are illustrative placeholders. Confirm the exact product and finish with Wakatendeka before ordering.</p>
+              <p class="max-w-xl text-lg leading-8 text-white/68 sm:text-xl">Browse our main product categories and contact us for current sizes, colours, availability and prices.</p>
+              <p class="mt-4 text-sm leading-6 text-white/50">Images on this page are illustrative placeholders. Confirm the exact product and finish with Wakatendeka before ordering.</p>
             </div>
           </div>
 

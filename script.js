@@ -38,7 +38,9 @@ const quoteFormStatus = document.querySelector("#quoteFormStatus");
 
 if (quoteForm && quoteFormStatus) {
   const requestedProduct = new URLSearchParams(window.location.search).get("product");
+  const galleryNote = new URLSearchParams(window.location.search).get("note");
   const productSelect = quoteForm.querySelector('select[name="product"]');
+  const messageField = quoteForm.querySelector('textarea[name="message"]');
 
   if (requestedProduct && productSelect) {
     const matchingOption = Array.from(productSelect.options).find(
@@ -46,6 +48,10 @@ if (quoteForm && quoteFormStatus) {
     );
 
     if (matchingOption) productSelect.value = matchingOption.value;
+  }
+
+  if (galleryNote && messageField && !messageField.value) {
+    messageField.value = galleryNote;
   }
 
   quoteForm.addEventListener("submit", (event) => {
