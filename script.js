@@ -37,6 +37,17 @@ const quoteForm = document.querySelector("#quoteForm");
 const quoteFormStatus = document.querySelector("#quoteFormStatus");
 
 if (quoteForm && quoteFormStatus) {
+  const requestedProduct = new URLSearchParams(window.location.search).get("product");
+  const productSelect = quoteForm.querySelector('select[name="product"]');
+
+  if (requestedProduct && productSelect) {
+    const matchingOption = Array.from(productSelect.options).find(
+      (option) => option.value.toLowerCase() === requestedProduct.toLowerCase(),
+    );
+
+    if (matchingOption) productSelect.value = matchingOption.value;
+  }
+
   quoteForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
