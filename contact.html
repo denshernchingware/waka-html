@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contact Wakatendeka Roofing and Building Supplies in Mutare." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Wakatendeka Roofing and Building Supplies in Nyakamete, Mutare, or request a product quotation.">
     <title>Contact | Wakatendeka Roofing and Building Supplies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
@@ -20,128 +20,129 @@
 
       @layer base {
         html { scroll-behavior: smooth; }
-        body { @apply m-0 bg-[#eef3fa] font-sans text-ink antialiased; }
+        body { @apply m-0 bg-[#f4f8fd] font-sans text-ink antialiased; }
+        a, button { -webkit-tap-highlight-color: transparent; }
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { @apply outline-2 outline-offset-2 outline-electric; }
       }
 
       .brand-button { background: linear-gradient(135deg, #0756b5, #1688f5); }
-      .hero-background {
-        background:
-          linear-gradient(rgba(9,38,83,.08), rgba(232,243,255,.22)),
-          url("Modern Zimbabwean Home With Blue Roof.png") center / cover no-repeat,
-          #e8f3ff;
+      .contact-lines {
+        background-image: repeating-linear-gradient(115deg, transparent 0 38px, rgba(114,185,255,.09) 39px 40px);
       }
-      .hero-copy {
-        background: rgba(255,255,255,.05);
-        backdrop-filter: blur(12px);
-      }
-      .section-kicker { @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand; }
-      .section-kicker::before { content: ""; @apply h-2 w-2 rounded-full bg-roofing; }
-      .map-filter { filter: grayscale(1) contrast(.86) opacity(.72); }
+      .field { @apply min-h-14 w-full rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal text-ink outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10; }
+      .field-label { @apply grid gap-2 text-sm font-semibold text-ink; }
+      .map-filter { filter: grayscale(.85) contrast(.9) saturate(.6); }
     </style>
   </head>
   <body>
     <main>
-      <section class="hero-background relative min-h-[50vh] w-full overflow-hidden">
-        <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/60 bg-white/55 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
-          <a href="index.html" class="flex shrink-0 items-center" aria-label="Wakatendeka home">
-            <img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-12 w-auto object-contain sm:h-14" />
-          </a>
+      <section class="contact-lines relative overflow-hidden bg-ink pb-20 text-white sm:pb-24 lg:pb-32">
+        <div class="pointer-events-none absolute -right-24 top-28 h-96 w-96 rounded-full border-[75px] border-electric/10"></div>
+        <div class="pointer-events-none absolute -bottom-44 left-[34%] h-96 w-96 rounded-full bg-brand/40 blur-3xl"></div>
+
+        <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/20 bg-white/90 px-3 shadow-[0_12px_35px_rgba(0,0,0,.15)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
+          <a href="index.html" class="flex shrink-0 items-center" aria-label="Wakatendeka home"><img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-12 w-auto object-contain sm:h-14"></a>
           <nav class="hidden items-center gap-9 text-[14px] font-medium text-ink/80 lg:flex" aria-label="Main navigation">
             <a href="index.html" class="transition hover:text-electric">Home</a>
             <a href="about.html" class="transition hover:text-electric">About</a>
             <a href="services.html" class="transition hover:text-electric">Services</a>
             <a href="gallery.html" class="transition hover:text-electric">Gallery</a>
-            <a href="contact.html" class="font-bold text-brand">Contact</a>
+            <a href="contact.html" class="font-bold text-brand" aria-current="page">Contact</a>
           </nav>
-          <a href="#quote" class="brand-button hidden items-center gap-3 rounded-full py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:brightness-110 sm:flex">Get Free Quote <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20">↗</span></a>
-          <button id="menuButton" class="grid h-10 w-10 place-items-center rounded-full bg-brand text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16" /></svg>
-          </button>
+          <a href="#quote" class="brand-button hidden items-center gap-3 rounded-full py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:brightness-110 sm:flex">Request a quote <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20" aria-hidden="true"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9" /></svg></span></a>
+          <button id="menuButton" type="button" class="grid h-10 w-10 place-items-center rounded-full bg-brand text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16" /></svg></button>
         </header>
 
-        <div id="mobileMenu" class="absolute left-5 right-5 top-24 z-40 hidden rounded-3xl bg-white p-5 shadow-xl lg:hidden">
-          <nav class="flex flex-col gap-1 font-medium">
-            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="index.html">Home</a>
-            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="about.html">About</a>
-            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="services.html">Services</a>
-            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="gallery.html">Gallery</a>
-            <a class="rounded-xl px-4 py-3 font-bold text-brand hover:bg-slate-50" href="contact.html">Contact</a>
-          </nav>
+        <div id="mobileMenu" class="absolute left-5 right-5 top-24 z-40 hidden rounded-3xl bg-white p-5 text-ink shadow-xl lg:hidden">
+          <nav class="flex flex-col gap-1 font-medium" aria-label="Mobile navigation"><a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="index.html">Home</a><a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="about.html">About</a><a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="services.html">Services</a><a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="gallery.html">Gallery</a><a class="rounded-xl px-4 py-3 font-bold text-brand hover:bg-slate-50" href="contact.html" aria-current="page">Contact</a></nav>
         </div>
 
-        <div class="relative mx-auto flex min-h-[calc(50vh-92px)] max-w-[1320px] items-center justify-center px-5 py-12 text-center sm:px-10 lg:px-10 xl:px-0">
+        <div class="relative mx-auto grid max-w-[1320px] gap-14 px-5 pt-16 sm:px-10 sm:pt-20 lg:grid-cols-[1.12fr_.88fr] lg:items-end lg:gap-20 lg:px-10 lg:pt-28 xl:px-0">
           <div>
-            <span class="inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-brand shadow-sm"><span class="h-2 w-2 rounded-full bg-roofing"></span>Get in touch</span>
-            <h1 class="mt-5 text-5xl font-semibold leading-none tracking-[-0.05em] text-ink sm:text-6xl lg:text-7xl">Contact us.</h1>
-            <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-ink/70 sm:text-xl">Tell us what your project needs and ask about our current roofing materials.</p>
+            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#72b9ff]"><span class="h-2 w-2 rounded-full bg-roofing"></span>Contact Wakatendeka</span>
+            <h1 class="mt-5 max-w-[760px] text-[50px] font-semibold leading-[.95] tracking-[-0.055em] sm:text-[68px] lg:text-[82px]">Tell us what your project needs.</h1>
+            <p class="mt-7 max-w-[680px] text-lg leading-8 text-white/68 sm:text-xl">Ask about IBR roofing sheets, Q Tiles or concrete nails. If you know the dimensions and quantity, include them so our team can respond more usefully.</p>
+          </div>
+
+          <div class="border-y border-white/20">
+            <a href="tel:0771407179" class="group flex items-center justify-between gap-6 border-b border-white/20 py-6 transition hover:border-electric">
+              <span><small class="block text-xs font-bold uppercase tracking-[0.16em] text-[#72b9ff]">Call</small><strong class="mt-2 block text-xl">0771&nbsp;407&nbsp;179</strong></span>
+              <svg viewBox="0 0 24 24" class="h-6 w-6 text-white/45 transition group-hover:text-electric" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </a>
+            <a href="tel:0717154689" class="group flex items-center justify-between gap-6 border-b border-white/20 py-6 transition hover:border-electric">
+              <span><small class="block text-xs font-bold uppercase tracking-[0.16em] text-[#72b9ff]">Alternative&nbsp;number</small><strong class="mt-2 block text-xl">0717&nbsp;154&nbsp;689</strong></span>
+              <svg viewBox="0 0 24 24" class="h-6 w-6 text-white/45 transition group-hover:text-electric" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </a>
+            <a href="mailto:wakatendekaroofing@gmail.com" class="group flex items-center justify-between gap-6 py-6 transition">
+              <span class="min-w-0"><small class="block text-xs font-bold uppercase tracking-[0.16em] text-[#72b9ff]">Email</small><strong class="mt-2 block break-all text-lg sm:text-xl">wakatendekaroofing@gmail.com</strong></span>
+              <svg viewBox="0 0 24 24" class="h-6 w-6 shrink-0 text-white/45 transition group-hover:text-electric" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="bg-[#f6f9fd] px-5 py-16 sm:px-10 lg:py-24">
-        <div class="mx-auto grid max-w-[1000px] gap-4 md:grid-cols-3">
-          <article class="flex min-h-[180px] flex-col items-center justify-center bg-white p-7 text-center shadow-[0_10px_30px_rgba(9,38,83,.06)]">
-            <span class="grid h-12 w-12 place-items-center rounded-full border-2 border-electric text-2xl text-electric">⌖</span>
-            <h2 class="mt-5 text-lg font-bold">Visit us</h2>
-            <p class="mt-2 text-base leading-6 text-ink/55">8 Swanesa Close,<br />Nyakamete, Mutare</p>
-          </article>
-          <article class="flex min-h-[180px] flex-col items-center justify-center bg-white p-7 text-center shadow-[0_10px_30px_rgba(9,38,83,.06)]">
-            <span class="grid h-12 w-12 place-items-center rounded-full border-2 border-electric text-2xl text-electric">☎</span>
-            <h2 class="mt-5 text-lg font-bold">Let's talk with us</h2>
-            <p class="mt-2 text-base leading-6 text-ink/55">0771 407 179<br />0717 154 689</p>
-          </article>
-          <article class="flex min-h-[180px] flex-col items-center justify-center bg-white p-7 text-center shadow-[0_10px_30px_rgba(9,38,83,.06)]">
-            <span class="grid h-12 w-12 place-items-center rounded-full border-2 border-electric text-2xl text-electric">✉</span>
-            <h2 class="mt-5 text-lg font-bold">Need live support?</h2>
-            <p class="mt-2 break-all text-base leading-6 text-ink/55">wakatendekaroofing<br />@gmail.com</p>
-          </article>
-        </div>
-      </section>
+      <section id="quote" class="scroll-mt-6 bg-[#f4f8fd] px-5 py-20 sm:px-10 lg:py-28" aria-labelledby="quote-title">
+        <div class="mx-auto max-w-[1240px] overflow-hidden rounded-[32px] bg-white shadow-[0_28px_80px_rgba(9,38,83,.13)] lg:grid lg:grid-cols-[.72fr_1.28fr]">
+          <aside class="relative overflow-hidden bg-[#e8f3ff] p-7 sm:p-10 lg:p-12">
+            <div class="absolute -bottom-24 -right-20 h-72 w-72 rounded-full border-[55px] border-electric/10"></div>
+            <div class="relative">
+              <span class="text-sm font-bold text-brand">A useful enquiry</span>
+              <h2 id="quote-title" class="mt-4 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl">Request a product quotation.</h2>
+              <p class="mt-6 text-lg leading-8 text-ink/65">Tell us which product you need and what you already know about your project. We can then confirm available options and current pricing.</p>
 
-      <section id="quote" class="bg-white px-5 py-20 sm:px-10 lg:py-28">
-        <div class="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[.75fr_1.25fr] lg:items-start">
-          <div>
-            <span class="section-kicker">Feel free to get in touch</span>
-            <h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">How we can <span class="relative inline-block">help<span class="absolute bottom-0 left-0 right-0 -z-0 h-2 bg-electric/35"></span></span> you?</h2>
-            <p class="mt-6 text-lg leading-8 text-ink/60 sm:text-xl">Ask about IBR Roofing Sheets, Q Tiles or Concrete Nails. If you know the dimensions and quantity, include them so our team can respond more usefully.</p>
-          </div>
+              <ol class="mt-10 border-t border-[#bfd2e8]">
+                <li class="grid grid-cols-[36px_1fr] gap-3 border-b border-[#bfd2e8] py-5"><span class="font-bold text-electric">01</span><span><strong class="block">Choose a product</strong><small class="mt-1 block text-sm leading-6 text-ink/55">IBR sheets, Q Tiles, concrete nails or another enquiry.</small></span></li>
+                <li class="grid grid-cols-[36px_1fr] gap-3 border-b border-[#bfd2e8] py-5"><span class="font-bold text-electric">02</span><span><strong class="block">Add what you know</strong><small class="mt-1 block text-sm leading-6 text-ink/55">Quantity, measurements, colour and project location.</small></span></li>
+                <li class="grid grid-cols-[36px_1fr] gap-3 py-5"><span class="font-bold text-roofing">03</span><span><strong class="block">Open the prepared email</strong><small class="mt-1 block text-sm leading-6 text-ink/55">Review your details in your email application before sending.</small></span></li>
+              </ol>
+            </div>
+          </aside>
 
-          <form id="quoteForm" class="grid gap-5 rounded-[28px] border border-[#d9e4f3] bg-[#f8fbff] p-6 sm:grid-cols-2 sm:p-10">
-            <label class="grid gap-2 text-sm font-semibold text-ink">Full name *<input name="name" type="text" required autocomplete="name" placeholder="Enter your full name" class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10" /></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink">Phone or email *<input name="contact" type="text" required placeholder="How should we reply?" class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10" /></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink">Product category *<select name="product" required class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none focus:border-electric focus:ring-4 focus:ring-electric/10"><option value="">Select a product</option><option>IBR Roofing Sheets</option><option>Q Tiles</option><option>Concrete Nails</option><option>Other enquiry</option></select></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink">Quantity or measurements<input name="quantity" type="text" placeholder="If known" class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10" /></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink">Colour or finish<input name="colour" type="text" placeholder="Your preference" class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10" /></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink">Project location<input name="location" type="text" placeholder="Town or suburb" class="min-h-14 rounded-xl border border-[#b5cae5] bg-white px-4 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10" /></label>
-            <label class="grid gap-2 text-sm font-semibold text-ink sm:col-span-2">Project notes<textarea name="message" rows="4" placeholder="Tell us what you need or ask a question" class="resize-none rounded-xl border border-[#b5cae5] bg-white px-4 py-3 text-base font-normal outline-none transition placeholder:text-ink/35 focus:border-electric focus:ring-4 focus:ring-electric/10"></textarea></label>
-            <div class="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between"><p class="text-sm text-ink/45">Submitting opens your email application.</p><button type="submit" class="brand-button inline-flex min-h-14 items-center justify-center gap-3 rounded-full px-7 font-bold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">Send message <span class="text-xl">↗</span></button></div>
+          <form id="quoteForm" class="grid content-start gap-5 p-6 sm:grid-cols-2 sm:p-10 lg:p-12" aria-label="Product quotation request">
+            <div class="sm:col-span-2">
+              <h3 class="text-2xl font-bold tracking-[-0.025em]">Your project details</h3>
+              <p class="mt-2 text-sm text-ink/50">Required fields are marked with an asterisk.</p>
+            </div>
+            <label class="field-label">Full name *<input name="name" type="text" required autocomplete="name" placeholder="Enter your full name" class="field"></label>
+            <label class="field-label">Phone or email *<input name="contact" type="text" required placeholder="How should we reply?" class="field"></label>
+            <label class="field-label">Product category *<select name="product" required class="field"><option value="">Select a product</option><option>IBR Roofing Sheets</option><option>Q Tiles</option><option>Concrete Nails</option><option>Other enquiry</option></select></label>
+            <label class="field-label">Quantity or measurements<input name="quantity" type="text" placeholder="If known" class="field"></label>
+            <label class="field-label">Colour or finish<input name="colour" type="text" placeholder="Your preference" class="field"></label>
+            <label class="field-label">Project location<input name="location" type="text" autocomplete="address-level2" placeholder="Town or suburb" class="field"></label>
+            <label class="field-label sm:col-span-2">Project notes<textarea name="message" rows="5" placeholder="Tell us what you need or ask a question" class="field min-h-36 resize-y py-3"></textarea></label>
+            <div class="flex flex-col gap-4 border-t border-[#d9e4f3] pt-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+              <p class="max-w-xs text-sm leading-6 text-ink/45">Submitting prepares an email in your default email application.</p>
+              <button type="submit" class="brand-button inline-flex min-h-14 items-center justify-center gap-3 rounded-full px-7 font-bold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">Prepare enquiry <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></button>
+            </div>
             <p id="quoteFormStatus" class="hidden rounded-xl bg-[#e8f3ff] px-4 py-3 text-sm font-semibold text-brand sm:col-span-2" role="status"></p>
           </form>
         </div>
       </section>
 
-      <section class="relative h-[430px] overflow-hidden bg-[#e8edf3]">
-        <iframe title="Map showing Mutare, Zimbabwe" class="map-filter absolute inset-0 h-full w-full border-0" src="https://www.google.com/maps?q=Mutare%2C%20Zimbabwe&output=embed" loading="lazy"></iframe>
-        <div class="pointer-events-none absolute inset-0 bg-white/10"></div>
-        <div class="absolute left-1/2 top-1/2 w-[min(320px,calc(100%-40px))] -translate-x-1/2 -translate-y-1/2 bg-white shadow-[0_15px_40px_rgba(9,38,83,.15)]">
-          <div class="p-6 text-center"><span class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-electric text-2xl text-white">⌖</span><h2 class="mt-4 text-lg font-bold">Wakatendeka Roofing</h2><p class="mt-2 text-sm leading-6 text-ink/55">8 Swanesa Close,<br />Nyakamete, Mutare, Zimbabwe</p></div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Mutare%2C%20Zimbabwe" target="_blank" rel="noreferrer" class="block bg-ink px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-brand">View larger map ↗</a>
-        </div>
-      </section>
-
-      <section class="bg-white px-5 py-20 sm:px-10 lg:py-28">
-        <div class="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[.65fr_1.35fr]">
-          <div><span class="section-kicker">Common questions</span><h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">Questions about roofing materials and ordering.</h2><p class="mt-6 text-lg leading-8 text-ink/60 sm:text-xl">For current sizes, colours, stock and prices, speak directly to our team.</p></div>
-          <div class="divide-y divide-[#d9e4f3] border-y border-[#d9e4f3]">
-            <details class="group py-6" open><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">Which roofing profiles do you sell?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary><p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Wakatendeka's confirmed categories are IBR Roofing Sheets and Q Tiles, alongside Concrete Nails. Ask the team about the options currently available.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">How do I request a quote?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary><p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Send the product name, dimensions if known, quantity, preferred colour, project location and a contact number.</p></details>
-            <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">Where is the shop?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary><p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Visit Wakatendeka at 8 Swanesa Close, Nyakamete, Mutare. Call before visiting if you need to confirm current product availability.</p></details>
+      <section class="bg-white px-5 py-20 sm:px-10 lg:py-28" aria-labelledby="visit-title">
+        <div class="mx-auto grid max-w-[1240px] overflow-hidden rounded-[32px] border border-[#d9e4f3] lg:grid-cols-[.76fr_1.24fr]">
+          <div class="relative z-10 flex flex-col justify-center bg-ink p-8 text-white sm:p-10 lg:p-12">
+            <span class="text-sm font-bold text-[#72b9ff]">Visit the shop</span>
+            <h2 id="visit-title" class="mt-4 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl">Find us in Nyakamete.</h2>
+            <address class="mt-6 text-xl not-italic leading-9 text-white/75">8 Swanesa Close<br>Nyakamete, Mutare<br>Zimbabwe</address>
+            <p class="mt-6 text-sm leading-6 text-white/50">Call before visiting if you need to confirm current product availability.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=8%20Swanesa%20Close%2C%20Nyakamete%2C%20Mutare%2C%20Zimbabwe" target="_blank" rel="noreferrer" class="mt-8 inline-flex w-fit min-h-12 items-center border-b-2 border-electric font-bold text-white">Open in Google Maps</a>
+          </div>
+          <div class="relative min-h-[430px] bg-[#e8edf3] lg:min-h-[540px]">
+            <iframe title="Map showing Nyakamete, Mutare, Zimbabwe" class="map-filter absolute inset-0 h-full w-full border-0" src="https://www.google.com/maps?q=8%20Swanesa%20Close%2C%20Nyakamete%2C%20Mutare%2C%20Zimbabwe&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>
 
+      <section class="border-t border-[#d9e4f3] bg-[#f4f8fd] px-5 py-16 sm:px-10 lg:py-20">
+        <div class="mx-auto flex max-w-[1180px] flex-col justify-between gap-8 md:flex-row md:items-center">
+          <div><p class="text-sm font-bold text-brand">Not sure which product to ask for?</p><h2 class="mt-2 max-w-3xl text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">Tell us about your project and we can discuss what is currently available.</h2></div>
+          <a href="#quote" class="brand-button inline-flex min-h-14 shrink-0 items-center justify-center rounded-full px-7 font-bold text-white">Start your enquiry</a>
+        </div>
+      </section>
+
       <footer class="bg-ink px-5 pb-8 pt-14 text-white sm:px-10">
-        <div class="mx-auto max-w-[1320px]"><div class="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 sm:flex-row sm:items-end"><img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-24 w-auto rounded-xl bg-white p-2 object-contain" /><nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65" aria-label="Footer navigation"><a href="index.html" class="hover:text-white">Home</a><a href="services.html" class="hover:text-white">Products</a><a href="about.html" class="hover:text-white">About</a><a href="gallery.html" class="hover:text-white">Gallery</a><a href="contact.html" class="hover:text-white">Contact</a></nav></div><div class="flex flex-col justify-between gap-3 pt-6 text-xs text-white/45 sm:flex-row"><p>© 2026 Wakatendeka Roofing and Building Supplies.</p><p>Quality materials. Stronger structures. Brighter tomorrows.</p></div></div>
+        <div class="mx-auto max-w-[1320px]"><div class="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 sm:flex-row sm:items-end"><img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-24 w-auto rounded-xl bg-white p-2 object-contain"><nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65" aria-label="Footer navigation"><a href="index.html" class="hover:text-white">Home</a><a href="services.html" class="hover:text-white">Products</a><a href="about.html" class="hover:text-white">About</a><a href="gallery.html" class="hover:text-white">Gallery</a><a href="contact.html" class="text-white">Contact</a></nav></div><div class="flex flex-col justify-between gap-3 pt-6 text-xs text-white/45 sm:flex-row"><p>&copy; 2026 Wakatendeka Roofing and Building Supplies.</p><p>Quality materials. Stronger structures. Brighter tomorrows.</p></div></div>
       </footer>
     </main>
     <script src="script.js"></script>
