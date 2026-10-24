@@ -167,6 +167,34 @@
       .motion-ready [data-reveal-delay="2"] { --reveal-delay: 160ms; }
       .motion-ready [data-reveal-delay="3"] { --reveal-delay: 240ms; }
 
+      .testimonial-viewport {
+        cursor: grab;
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+
+      .testimonial-viewport.is-dragging {
+        cursor: grabbing;
+        user-select: none;
+      }
+
+      .testimonial-track {
+        display: flex;
+        gap: 1.25rem;
+        transform: translate3d(0, 0, 0);
+        transition: transform 450ms cubic-bezier(.22, 1, .36, 1);
+        will-change: transform;
+      }
+
+      .testimonial-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+      }
+
+      @media (min-width: 1024px) {
+        .testimonial-slide { flex-basis: calc((100% - 2.5rem) / 3); }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
         .hero-load, .hero-panel-load, .hero-image-motion, .hero-marker { animation: none; }
@@ -175,6 +203,7 @@
           transform: none;
           transition: none;
         }
+        .testimonial-track { transition: none; }
       }
     </style>
   </head>
@@ -480,31 +509,67 @@
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-ink/60 sm:text-xl">This template is ready for genuine feedback from customers who have approved their comments for publication.</p>
           </div>
 
-          <div class="mt-14 grid gap-5 lg:grid-cols-3">
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="1">
-              <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
-              <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
-              <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
-              <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add an approved customer comment about the product quality, available options or buying experience.”</blockquote>
-              <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-ink text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Product purchased</span></div></div>
-            </article>
+          <section id="testimonialCarousel" class="mt-14" aria-roledescription="carousel" aria-label="Customer testimonials">
+            <div class="testimonial-viewport rounded-[28px]" data-testimonial-viewport>
+              <div class="testimonial-track" data-testimonial-track>
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="1" role="group" aria-roledescription="slide" aria-label="1 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add an approved customer comment about the product quality, available options or buying experience.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-ink text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Product purchased</span></div></div>
+                </article>
 
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9 lg:-translate-y-5" data-reveal data-reveal-delay="2">
-              <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
-              <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
-              <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
-              <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add verified feedback about communication, the quotation process or collecting an order.”</blockquote>
-              <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-brand text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Project type</span></div></div>
-            </article>
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="2" role="group" aria-roledescription="slide" aria-label="2 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add verified feedback about communication, the quotation process or collecting an order.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-brand text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Project type</span></div></div>
+                </article>
 
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="3">
-              <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
-              <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
-              <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
-              <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add a genuine comment from a homeowner, builder or contractor after permission is received.”</blockquote>
-              <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-electric text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Customer type</span></div></div>
-            </article>
-          </div>
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="3" role="group" aria-roledescription="slide" aria-label="3 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add a genuine comment from a homeowner, builder or contractor after permission is received.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-electric text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Customer type</span></div></div>
+                </article>
+
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="1" role="group" aria-roledescription="slide" aria-label="4 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add an approved homeowner comment about finding the right roofing materials.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-roofing text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Homeowner</span></div></div>
+                </article>
+
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="2" role="group" aria-roledescription="slide" aria-label="5 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add verified builder feedback about availability, pricing or collecting an order.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-brand text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Builder</span></div></div>
+                </article>
+
+                <article class="testimonial-slide relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="3" role="group" aria-roledescription="slide" aria-label="6 of 6">
+                  <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
+                  <div class="text-lg tracking-[0.15em] text-roofing" role="img" aria-label="Five star placeholder">★★★★★</div>
+                  <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
+                  <blockquote class="mt-6 text-lg leading-8 text-ink/65 sm:text-xl">“Add genuine contractor feedback about larger material orders and project support.”</blockquote>
+                  <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-electric text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Contractor</span></div></div>
+                </article>
+              </div>
+            </div>
+
+            <div class="mt-7 flex items-center justify-between gap-4">
+              <p class="text-sm text-ink/50">Drag to explore</p>
+              <div class="flex gap-2">
+                <button type="button" class="grid h-11 w-11 place-items-center rounded-full border border-[#b5cae5] bg-white text-xl text-ink transition hover:border-electric hover:text-electric disabled:cursor-not-allowed disabled:opacity-35" data-testimonial-prev aria-label="Show previous testimonials">←</button>
+                <button type="button" class="grid h-11 w-11 place-items-center rounded-full border border-[#b5cae5] bg-white text-xl text-ink transition hover:border-electric hover:text-electric disabled:cursor-not-allowed disabled:opacity-35" data-testimonial-next aria-label="Show next testimonials">→</button>
+              </div>
+            </div>
+          </section>
 
           <div class="mt-12 text-center"><a href="#quote" class="inline-flex items-center gap-3 text-xl font-bold text-ink">Have a question? <span class="border-b-2 border-electric pb-1 text-brand">We're ready to help.</span> <span>→</span></a></div>
         </div>

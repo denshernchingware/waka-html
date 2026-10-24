@@ -39,6 +39,95 @@ if (revealItems.length) {
   }
 }
 
+const testimonialCarousel = document.querySelector("#testimonialCarousel");
+
+if (testimonialCarousel) {
+  const viewport = testimonialCarousel.querySelector("[data-testimonial-viewport]");
+  const track = testimonialCarousel.querySelector("[data-testimonial-track]");
+  const slides = Array.from(testimonialCarousel.querySelectorAll(".testimonial-slide"));
+  const previousButton = testimonialCarousel.querySelector("[data-testimonial-prev]");
+  const nextButton = testimonialCarousel.querySelector("[data-testimonial-next]");
+  let currentIndex = 0;
+  let maxIndex = 0;
+  let slideStep = 0;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragDelta = 0;
+  let pointerId = null;
+
+  const visibleSlideCount = () => (window.matchMedia("(min-width: 1024px)").matches ? 3 : 1);
+
+  const updateButtons = () => {
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === maxIndex;
+  };
+
+  const setPosition = (animate = true, offset = 0) => {
+    track.style.transition = animate ? "" : "none";
+    track.style.transform = `translate3d(${currentIndex * -slideStep + offset}px, 0, 0)`;
+    updateButtons();
+  };
+
+  const measure = () => {
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+    slideStep = (slides[0]?.getBoundingClientRect().width || 0) + gap;
+    maxIndex = Math.max(0, slides.length - visibleSlideCount());
+    currentIndex = Math.min(currentIndex, maxIndex);
+    setPosition(false);
+  };
+
+  const moveTo = (index) => {
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    setPosition();
+  };
+
+  const finishDrag = () => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    viewport.classList.remove("is-dragging");
+    if (Math.abs(dragDelta) > Math.min(slideStep * 0.18, 90)) {
+      moveTo(currentIndex + (dragDelta < 0 ? 1 : -1));
+    } else {
+      setPosition();
+    }
+
+    if (pointerId !== null && viewport.hasPointerCapture(pointerId)) {
+      viewport.releasePointerCapture(pointerId);
+    }
+    pointerId = null;
+    dragDelta = 0;
+  };
+
+  viewport.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    isDragging = true;
+    pointerId = event.pointerId;
+    dragStartX = event.clientX;
+    dragDelta = 0;
+    viewport.classList.add("is-dragging");
+    viewport.setPointerCapture(pointerId);
+    track.style.transition = "none";
+  });
+
+  viewport.addEventListener("pointermove", (event) => {
+    if (!isDragging) return;
+    dragDelta = event.clientX - dragStartX;
+
+    const atLimit = (currentIndex === 0 && dragDelta > 0) || (currentIndex === maxIndex && dragDelta < 0);
+    setPosition(false, dragDelta * (atLimit ? 0.35 : 1));
+  });
+
+  viewport.addEventListener("pointerup", finishDrag);
+  viewport.addEventListener("pointercancel", finishDrag);
+  viewport.addEventListener("lostpointercapture", finishDrag);
+
+  previousButton.addEventListener("click", () => moveTo(currentIndex - 1));
+  nextButton.addEventListener("click", () => moveTo(currentIndex + 1));
+  window.addEventListener("resize", measure);
+  measure();
+}
+
 const galleryFilters = document.querySelectorAll("[data-gallery-filter]");
 const galleryItems = document.querySelectorAll("[data-gallery-item]");
 
