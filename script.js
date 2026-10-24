@@ -16,6 +16,29 @@ if (menuButton && mobileMenu) {
   });
 }
 
+const revealItems = document.querySelectorAll("[data-reveal]");
+
+if (revealItems.length) {
+  document.documentElement.classList.add("motion-ready");
+
+  if (!("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  }
+}
+
 const galleryFilters = document.querySelectorAll("[data-gallery-filter]");
 const galleryItems = document.querySelectorAll("[data-gallery-item]");
 

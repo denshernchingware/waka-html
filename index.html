@@ -120,12 +120,68 @@
       .audience-photo {
         border-radius: 24px;
       }
+
+      @keyframes hero-rise {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes hero-fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes hero-drift {
+        from { transform: scale(1.01) translate3d(0, 0, 0); }
+        to { transform: scale(1.035) translate3d(-10px, -6px, 0); }
+      }
+
+      @keyframes marker-pulse {
+        0%, 100% { box-shadow: 0 0 0 7px rgba(255,255,255,.2); }
+        50% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+      }
+
+      .hero-load {
+        animation: hero-rise 700ms cubic-bezier(.22, 1, .36, 1) both;
+      }
+
+      .hero-panel-load { animation: hero-fade 700ms ease both; }
+
+      .hero-load-delay-1 { animation-delay: 100ms; }
+      .hero-load-delay-2 { animation-delay: 220ms; }
+      .hero-load-delay-3 { animation-delay: 360ms; }
+      .hero-image-motion { animation: hero-drift 12s ease-in-out infinite alternate; }
+      .hero-marker { animation: marker-pulse 2.8s ease-in-out infinite; }
+
+      .motion-ready [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, 1, .36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      .motion-ready [data-reveal="left"] { transform: translateX(-28px); }
+      .motion-ready [data-reveal="right"] { transform: translateX(28px); }
+      .motion-ready [data-reveal].is-visible { opacity: 1; transform: translate(0); }
+      .motion-ready [data-reveal-delay="1"] { --reveal-delay: 80ms; }
+      .motion-ready [data-reveal-delay="2"] { --reveal-delay: 160ms; }
+      .motion-ready [data-reveal-delay="3"] { --reveal-delay: 240ms; }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .hero-load, .hero-panel-load, .hero-image-motion, .hero-marker { animation: none; }
+        .motion-ready [data-reveal], .motion-ready [data-reveal].is-visible {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body>
     <main class="min-h-screen">
       <section class="hero-sky relative min-h-[90vh] w-full overflow-hidden bg-white">
-        <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/60 bg-white/55 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
+        <header class="hero-load relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/60 bg-white/55 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
           <a href="#" class="flex shrink-0 items-center" aria-label="Wakatendeka home">
             <img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-12 w-auto object-contain sm:h-14" />
           </a>
@@ -163,33 +219,33 @@
         <div class="hero-foreground pointer-events-none absolute inset-0 z-30 hidden lg:block" aria-hidden="true"></div>
 
         <div class="relative mx-auto max-w-[1320px] px-5 pb-48 pt-8 sm:px-10 sm:pt-12 lg:px-10 lg:pb-0 lg:pt-10 xl:px-0">
-          <div class="glass-panel relative z-20 flex max-w-[800px] flex-col items-start justify-center rounded-[28px] px-6 py-9 sm:px-10 sm:py-12 lg:min-h-[570px] lg:translate-y-6 lg:px-12 lg:py-12 xl:px-14">
-            <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-ink/70 shadow-sm">
+          <div class="glass-panel hero-panel-load relative z-20 flex max-w-[800px] flex-col items-start justify-center rounded-[28px] px-6 py-9 sm:px-10 sm:py-12 lg:min-h-[570px] lg:translate-y-6 lg:px-12 lg:py-12 xl:px-14">
+            <div class="hero-load hero-load-delay-2 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-ink/70 shadow-sm">
               <span class="h-2 w-2 rounded-full bg-roofing"></span>
               Trusted Roofing Experts
             </div>
 
-            <h1 class="mt-6 max-w-[650px] text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[64px] lg:text-[72px]">
+            <h1 class="hero-load hero-load-delay-2 mt-6 max-w-[650px] text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[64px] lg:text-[72px]">
               Smart Roofing for Modern Homes.
             </h1>
-            <p class="mt-6 max-w-[550px] text-base leading-7 text-ink/70 sm:text-lg">
+            <p class="hero-load hero-load-delay-3 mt-6 max-w-[550px] text-base leading-7 text-ink/70 sm:text-lg">
               Our expert roofing services are designed to protect your home with quality and precision.
             </p>
-            <a href="#quote" class="brand-button mt-8 inline-flex items-center gap-4 rounded-full py-2 pl-6 pr-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">
+            <a href="#quote" class="hero-load hero-load-delay-3 brand-button mt-8 inline-flex items-center gap-4 rounded-full py-2 pl-6 pr-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">
               Get Started Now
               <span class="grid h-9 w-9 place-items-center rounded-full bg-white/20 text-base" aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <div class="relative z-10 mt-[-30px] ml-auto aspect-[16/9] w-[115%] -mr-[15%] sm:mt-[-90px] lg:absolute lg:right-[calc(50%-50vw)] lg:top-[35px] lg:mt-0 lg:mr-0 lg:h-[690px] lg:w-[80vw] lg:max-w-none lg:aspect-auto">
+          <div class="hero-image-motion relative z-10 mt-[-30px] ml-auto aspect-[16/9] w-[115%] -mr-[15%] sm:mt-[-90px] lg:absolute lg:right-[calc(50%-50vw)] lg:top-[35px] lg:mt-0 lg:mr-0 lg:h-[690px] lg:w-[80vw] lg:max-w-none lg:aspect-auto">
             <div class="absolute inset-0" aria-label="Modern Zimbabwean home with a blue roof">
             </div>
 
             <div class="absolute right-[13%] top-[18%] hidden items-center gap-2 lg:flex">
-              <span class="h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
+              <span class="hero-marker h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
             </div>
             <div class="absolute left-[36%] top-[43%] hidden items-center lg:flex">
-              <span class="h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
+              <span class="hero-marker h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
               <span class="ml-2 border-l border-dashed border-white/70 pl-4 text-xs text-white/90">Boral Steel Roofing</span>
             </div>
 
@@ -232,7 +288,7 @@
 
       <section class="bg-white" aria-labelledby="why-title">
         <div class="border-b border-[#d9e4f3] px-5 sm:px-10">
-          <div class="mx-auto grid max-w-[1180px] grid-cols-2 gap-x-6 gap-y-5 py-7 lg:grid-cols-4">
+          <div class="mx-auto grid max-w-[1180px] grid-cols-2 gap-x-6 gap-y-5 py-7 lg:grid-cols-4" data-reveal>
             <div class="flex items-center gap-3 text-sm font-semibold text-ink sm:text-base">
               <svg viewBox="0 0 24 24" class="h-7 w-7 shrink-0 text-brand" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
               Product-focused help
@@ -253,7 +309,7 @@
         </div>
 
         <div class="mx-auto grid max-w-[1180px] gap-14 px-5 py-20 sm:px-10 lg:grid-cols-2 lg:items-center lg:py-28">
-          <div class="relative lg:pr-10">
+          <div class="relative lg:pr-10" data-reveal="left">
             <span class="inline-flex rounded-full bg-[#e8f3ff] px-5 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand">Why choose us</span>
             <h2 id="why-title" class="mt-7 max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-5xl">A practical way to start your roofing enquiry.</h2>
             <p class="mt-6 max-w-xl text-lg leading-8 text-ink/65 sm:text-xl">Tell us whether you need IBR Roofing Sheets, Q Tiles or Concrete Nails. Share the quantity, measurements and colour you are considering, and ask our team about current options and pricing.</p>
@@ -268,7 +324,7 @@
             </div>
           </div>
 
-          <div class="relative mx-auto h-[430px] w-full max-w-[580px] overflow-hidden rounded-[28px] bg-[#e8f3ff] shadow-[0_25px_70px_rgba(9,38,83,.16)] sm:h-[520px]">
+          <div class="relative mx-auto h-[430px] w-full max-w-[580px] overflow-hidden rounded-[28px] bg-[#e8f3ff] shadow-[0_25px_70px_rgba(9,38,83,.16)] sm:h-[520px]" data-reveal="right">
             <img src="gallery-roof-2.jpeg" alt="Illustrative tile-profile roofing inspiration" class="h-full w-full object-cover object-[58%_58%]" />
             <span class="absolute bottom-3 right-3 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-semibold text-ink/60 backdrop-blur">Illustrative product imagery</span>
           </div>
@@ -279,18 +335,18 @@
         <div class="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full opacity-30" style="background: repeating-linear-gradient(45deg, transparent 0 7px, #1688f5 8px 9px)"></div>
         <div class="relative mx-auto max-w-[1180px]">
           <div class="grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
-            <div>
+            <div data-reveal="left">
               <span class="section-kicker">What we offer</span>
               <h2 class="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-0.04em] text-ink sm:text-5xl">Explore the products.</h2>
             </div>
-            <div class="lg:justify-self-end">
+            <div class="lg:justify-self-end" data-reveal="right">
               <p class="max-w-2xl text-lg leading-8 text-ink/65 sm:text-xl">Browse our three confirmed product categories and ask about current sizes, colours, availability and prices.</p>
               <a href="services.html" class="mt-5 inline-flex min-h-11 items-center border-b-2 border-electric font-bold text-brand transition hover:text-electric">View the full catalogue</a>
             </div>
           </div>
 
           <div class="mt-12 grid gap-5 md:grid-cols-3">
-            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-electric/50 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]">
+            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-electric/50 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]" data-reveal data-reveal-delay="1">
               <div class="flex items-start justify-between">
                 <span class="grid h-14 w-14 place-items-center rounded-2xl bg-[#e8f3ff] text-brand">
                   <svg viewBox="0 0 32 32" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 16 4l12 6v15H4V10Z"/><path d="m4 10 12 6 12-6M9 12.5V25M15 15.5V25M21 13.5V25M27 10.5V25"/></svg>
@@ -302,7 +358,7 @@
               <a href="services.html#ibr" class="mt-auto flex items-center justify-between border-t border-[#d9e4f3] pt-6 font-bold text-brand transition group-hover:text-electric"><span>View product details</span><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </article>
 
-            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-roofing/40 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]">
+            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-roofing/40 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]" data-reveal data-reveal-delay="2">
               <div class="flex items-start justify-between">
                 <span class="grid h-14 w-14 place-items-center rounded-2xl bg-[#fff0ee] text-roofing">
                   <svg viewBox="0 0 32 32" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14 16 5l13 9-3 3-10-7-10 7-3-3Z"/><path d="M7 17v9h18v-9M11 17l5-3 5 3M11 21l5-3 5 3M11 25l5-3 5 3"/></svg>
@@ -314,7 +370,7 @@
               <a href="services.html#q-tiles" class="mt-auto flex items-center justify-between border-t border-[#d9e4f3] pt-6 font-bold text-brand transition group-hover:text-electric"><span>View product details</span><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </article>
 
-            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]">
+            <article class="group flex min-h-[285px] flex-col rounded-[20px] border border-[#d9e4f3] bg-white p-7 shadow-[0_12px_35px_rgba(9,38,83,.07)] transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_45px_rgba(9,38,83,.12)]" data-reveal data-reveal-delay="3">
               <div class="flex items-start justify-between">
                 <span class="grid h-14 w-14 place-items-center rounded-2xl bg-[#edf1f6] text-ink">
                   <svg viewBox="0 0 32 32" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 24 12-12M7 22l3 3M19 10l3 3M22 8l2-2 2 2-2 2M12 18l2 2M16 14l2 2"/><path d="M5 27h22"/></svg>
@@ -332,7 +388,7 @@
       <section id="projects" class="bg-[#f8fafc] px-5 py-20 sm:px-10 lg:py-28">
         <div class="mx-auto max-w-[1180px]">
           <div class="flex flex-col justify-between gap-8 md:flex-row md:items-center">
-            <div>
+            <div data-reveal="left">
               <span class="section-kicker">Product gallery</span>
               <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-ink sm:text-5xl">Roofing inspiration</h2>
             </div>
@@ -340,19 +396,19 @@
           </div>
 
           <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="galleryGrid">
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles">
+            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles" data-reveal data-reveal-delay="1">
               <a href="gallery.html#gallery" class="block h-full w-full">
                 <img src="gallery-roof-1.png" alt="Illustrative worker fitting dark roof tiles" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-xl">Tile roofing work reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
               </a>
             </figure>
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles">
+            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles" data-reveal data-reveal-delay="2">
               <a href="gallery.html#gallery" class="block h-full w-full">
                 <img src="gallery-roof-2.jpeg" alt="Illustrative roofing installer working on a pitched roof" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-xl">Roof installation reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
               </a>
             </figure>
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="ibr">
+            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="ibr" data-reveal data-reveal-delay="3">
               <a href="gallery.html#gallery" class="block h-full w-full">
                 <img src="gallery-roof-1.png" alt="Illustrative building with green metal roofing sheets" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#72b9ff]">IBR inspiration</span><strong class="mt-2 text-xl">Green metal roof reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
@@ -370,14 +426,14 @@
         <div class="pointer-events-none absolute right-4 top-[22%] hidden h-56 w-10 -skew-x-[10deg] bg-roofing lg:block"></div>
 
         <div class="relative mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[.9fr_1.3fr] lg:items-center lg:gap-10">
-          <div class="relative z-10 lg:pr-8">
+          <div class="relative z-10 lg:pr-8" data-reveal="left">
             <span class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-white/80"><span class="h-1 w-12 bg-roofing"></span>Who we help</span>
             <h2 class="mt-8 max-w-[560px] text-4xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-[52px]">The right materials for every kind of build.</h2>
             <p class="mt-6 max-w-[560px] text-lg leading-8 text-white/70 sm:text-xl">From home improvements to larger projects, tell us what you need and we'll help you get started.</p>
             <a href="#quote" class="mt-8 inline-flex items-center gap-5 rounded-full bg-white py-2 pl-7 pr-2 font-bold text-ink shadow-[0_12px_30px_rgba(0,0,0,.18)] transition hover:bg-[#e8f3ff]">Discuss your project <span class="grid h-10 w-10 place-items-center rounded-full bg-roofing text-white"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
           </div>
 
-          <div class="grid gap-8 sm:grid-cols-3 sm:gap-1">
+          <div class="grid gap-8 sm:grid-cols-3 sm:gap-1" data-reveal="right">
             <article>
               <div class="audience-photo h-[240px] overflow-hidden bg-[#dcecff] shadow-[0_20px_45px_rgba(0,0,0,.2)] sm:h-[280px] lg:h-[300px]">
                 <img src="roofing-house.png" alt="Illustrative completed home with metal roofing" class="h-full w-full object-cover object-[62%_center]" />
@@ -418,14 +474,14 @@
         <div class="absolute left-[8%] top-16 h-3 w-3 rounded-full bg-roofing"></div>
         <div class="absolute right-[9%] top-24 h-20 w-20 rounded-full border border-electric/25"></div>
         <div class="mx-auto max-w-[1320px]">
-          <div class="mx-auto max-w-3xl text-center">
+          <div class="mx-auto max-w-3xl text-center" data-reveal>
             <span class="section-kicker">Customer feedback</span>
             <h2 id="testimonials-title" class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-5xl lg:text-6xl">What customers say.</h2>
             <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-ink/60 sm:text-xl">This template is ready for genuine feedback from customers who have approved their comments for publication.</p>
           </div>
 
           <div class="mt-14 grid gap-5 lg:grid-cols-3">
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9">
+            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="1">
               <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
               <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
               <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
@@ -433,7 +489,7 @@
               <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-ink text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Product purchased</span></div></div>
             </article>
 
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9 lg:-translate-y-5">
+            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9 lg:-translate-y-5" data-reveal data-reveal-delay="2">
               <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
               <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
               <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
@@ -441,7 +497,7 @@
               <div class="mt-auto flex items-center gap-4 pt-8"><span class="grid h-14 w-14 place-items-center rounded-full bg-brand text-lg font-bold text-white">CN</span><div><strong class="block text-ink">Customer name</strong><span class="mt-1 block text-sm text-ink/45">Project type</span></div></div>
             </article>
 
-            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9">
+            <article class="relative flex min-h-[390px] flex-col rounded-[24px] border border-[#d9e4f3] bg-white p-7 shadow-[0_14px_40px_rgba(9,38,83,.08)] sm:p-9" data-reveal data-reveal-delay="3">
               <span class="absolute right-7 top-6 font-serif text-7xl leading-none text-electric/15">“</span>
               <div class="text-lg tracking-[0.15em] text-roofing" aria-label="Five star placeholder">★★★★★</div>
               <span class="mt-5 w-fit rounded-full bg-[#e8f3ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">Testimonial placeholder</span>
@@ -455,7 +511,7 @@
       </section>
 
       <section id="areas" class="bg-[#f6f9fd] px-5 py-20 sm:px-10 lg:py-28">
-        <div class="mx-auto grid max-w-[1180px] overflow-hidden rounded-[32px] bg-white shadow-[0_25px_70px_rgba(9,38,83,.12)] lg:grid-cols-[.72fr_1.28fr]">
+        <div class="mx-auto grid max-w-[1180px] overflow-hidden rounded-[32px] bg-white shadow-[0_25px_70px_rgba(9,38,83,.12)] lg:grid-cols-[.72fr_1.28fr]" data-reveal>
           <div class="relative overflow-hidden bg-ink p-8 text-white sm:p-10 lg:p-12">
             <div class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full border-[60px] border-electric/15"></div>
             <div class="absolute -right-20 top-20 h-64 w-64 rounded-full bg-brand/30 blur-3xl"></div>
@@ -481,7 +537,7 @@
             </div>
           </div>
 
-          <form id="quoteForm" class="grid gap-5 p-6 sm:grid-cols-2 sm:p-10 lg:p-12">
+          <form id="quoteForm" class="grid gap-5 p-6 sm:grid-cols-2 sm:p-10 lg:p-12" data-reveal="right">
             <div class="sm:col-span-2">
               <h3 class="text-2xl font-bold tracking-[-0.03em] text-ink">Your project details</h3>
               <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">Fields marked with an asterisk are required.</p>
