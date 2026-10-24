@@ -72,12 +72,6 @@
         </div>
       </section>
 
-      <section class="border-b border-[#d9e4f3] bg-white px-5 py-8 sm:px-10">
-        <div class="mx-auto grid max-w-[1180px] gap-5 md:grid-cols-[auto_1fr] md:items-center md:gap-10">
-          <strong class="text-sm text-ink">How to read this gallery</strong>
-          <p class="text-sm leading-6 text-ink/55">These are illustrative references, not documented Wakatendeka installations or current-stock photographs. Confirm actual products, colours and finishes before ordering.</p>
-        </div>
-      </section>
 
       <section id="gallery" class="scroll-mt-6 bg-[#f4f8fd] px-5 py-20 sm:px-10 lg:py-28" aria-labelledby="gallery-title">
         <div class="mx-auto max-w-[1180px]">
@@ -86,48 +80,144 @@
             <div class="flex flex-wrap gap-x-7 gap-y-5 text-sm font-semibold" role="group" aria-label="Filter gallery"><button type="button" class="gallery-filter" data-gallery-filter="all" aria-pressed="true">All references</button><button type="button" class="gallery-filter" data-gallery-filter="ibr" aria-pressed="false">IBR Sheets</button><button type="button" class="gallery-filter" data-gallery-filter="tiles" aria-pressed="false">Q Tiles</button><button type="button" class="gallery-filter" data-gallery-filter="nails" aria-pressed="false">Concrete Nails</button></div>
           </div>
 
-          <div class="mt-14 grid gap-6 lg:grid-cols-12" id="galleryGrid">
-            <article class="gallery-entry overflow-hidden rounded-[8px_28px_28px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-7" data-gallery-item="ibr">
-              <a href="services.html#ibr" class="block overflow-hidden bg-[#dcecff]"><img src="inspiration-1.jpg" alt="Illustrative ribbed metal roofing profile" class="gallery-image h-[390px] w-full object-cover object-[55%_55%] sm:h-[520px]"></a>
-              <div class="grid gap-5 p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8"><div><span class="text-xs font-bold uppercase tracking-[0.14em] text-brand">IBR Roofing Sheets</span><h3 class="mt-2 text-2xl font-bold">Profile and finish reference</h3><p class="mt-3 max-w-xl leading-7 text-ink/55">Use this image to discuss the roofing profile and finish you are considering.</p></div><a href="contact.html?product=IBR%20Roofing%20Sheets&amp;note=Interested%20in%20the%20profile%20and%20finish%20gallery%20reference#quote" class="font-bold text-brand hover:text-electric">Ask about this style</a></div>
-            </article>
+          <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="galleryGrid">
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="ibr">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Profile and finish reference" data-gallery-description="IBR Roofing Sheets. Use this image to discuss the roofing profile and finish you are considering.">
+                <img src="inspiration-1.jpg" alt="Illustrative ribbed metal roofing profile" class="gallery-image h-full w-full object-cover object-[55%_55%]">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#72b9ff]">IBR Roofing Sheets</span><strong class="mt-2 text-lg">Profile and finish reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
 
-            <article class="gallery-entry overflow-hidden rounded-[28px_8px_28px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-5" data-gallery-item="tiles">
-              <a href="services.html#q-tiles" class="block overflow-hidden bg-[#dcecff]"><img src="inspiration-3.jpg" alt="Illustrative tile-profile roofing in contrasting colours" class="gallery-image h-[390px] w-full object-cover object-[52%_62%] sm:h-[420px]"></a>
-              <div class="p-6 sm:p-8"><span class="text-xs font-bold uppercase tracking-[0.14em] text-roofing">Q Tiles</span><h3 class="mt-2 text-2xl font-bold">Tile-profile reference</h3><p class="mt-3 leading-7 text-ink/55">A visual reference for discussing tile-like sheet profiles. Colours shown do not confirm current stock.</p><a href="contact.html?product=Q%20Tiles&amp;note=Interested%20in%20the%20tile-profile%20gallery%20reference#quote" class="mt-5 inline-flex font-bold text-brand hover:text-electric">Ask about this style</a></div>
-            </article>
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="tiles">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Tile roofing work reference" data-gallery-description="Illustrative roofing work image. This does not document a Wakatendeka installation.">
+                <img src="gallery-roof-1.png" alt="Illustrative worker fitting dark roof tiles" class="gallery-image h-full w-full object-cover object-center">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-lg">Tile roofing work reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
 
-            <article class="gallery-entry overflow-hidden rounded-[28px_28px_8px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-5" data-gallery-item="nails">
-              <a href="services.html#concrete-nails" class="block overflow-hidden bg-[#dcecff]"><img src="inspiration-2.jpg" alt="Illustrative concrete nails and building supplies" class="gallery-image h-[360px] w-full object-cover object-[50%_54%]"></a>
-              <div class="p-6 sm:p-8"><span class="text-xs font-bold uppercase tracking-[0.14em] text-ink/55">Concrete Nails</span><h3 class="mt-2 text-2xl font-bold">Fastener reference</h3><p class="mt-3 leading-7 text-ink/55">Ask about confirmed nail sizes, finishes and pack quantities for your application.</p><a href="contact.html?product=Concrete%20Nails&amp;note=Interested%20in%20the%20concrete%20nails%20gallery%20reference#quote" class="mt-5 inline-flex font-bold text-brand hover:text-electric">Ask about this product</a></div>
-            </article>
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="nails">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Fastener reference" data-gallery-description="Concrete Nails. Ask about confirmed sizes, finishes and pack quantities.">
+                <img src="inspiration-2.jpg" alt="Illustrative concrete nails and building supplies" class="gallery-image h-full w-full object-cover object-[50%_54%]">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60">Concrete Nails</span><strong class="mt-2 text-lg">Fastener reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
 
-            <article class="gallery-entry overflow-hidden rounded-[8px_28px_28px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-7" data-gallery-item="ibr">
-              <a href="services.html#ibr" class="block overflow-hidden bg-[#dcecff]"><img src="Modern Zimbabwean Home With Blue Roof.png" alt="Illustrative home with blue metal roofing" class="gallery-image h-[390px] w-full object-cover object-[64%_center] sm:h-[500px]"></a>
-              <div class="grid gap-5 p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8"><div><span class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Roofing inspiration</span><h3 class="mt-2 text-2xl font-bold">Blue-roof visual reference</h3><p class="mt-3 max-w-xl leading-7 text-ink/55">An illustrative residential context. Confirm physical samples and stock colours with Wakatendeka.</p></div><a href="contact.html?product=IBR%20Roofing%20Sheets&amp;note=Interested%20in%20the%20blue-roof%20gallery%20reference#quote" class="font-bold text-brand hover:text-electric">Ask about this look</a></div>
-            </article>
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="tiles">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Roof installation reference" data-gallery-description="Illustrative installer image. Confirm products and services directly with Wakatendeka.">
+                <img src="gallery-roof-2.jpeg" alt="Illustrative roofing installer working on a pitched roof" class="gallery-image h-full w-full object-cover object-center">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-lg">Roof installation reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
 
-            <article class="gallery-entry overflow-hidden rounded-[28px_8px_28px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-7" data-gallery-item="tiles">
-              <a href="services.html#q-tiles" class="block overflow-hidden bg-[#dcecff]"><img src="roofing-house.png" alt="Illustrative modern home roofing" class="gallery-image h-[390px] w-full object-cover object-[63%_center] sm:h-[500px]"></a>
-              <div class="grid gap-5 p-6 sm:grid-cols-[1fr_auto] sm:items-end sm:p-8"><div><span class="text-xs font-bold uppercase tracking-[0.14em] text-roofing">Roofing inspiration</span><h3 class="mt-2 text-2xl font-bold">Modern roof reference</h3><p class="mt-3 max-w-xl leading-7 text-ink/55">Use the roof shape and finish as a starting point when explaining the look you want.</p></div><a href="contact.html?product=Q%20Tiles&amp;note=Interested%20in%20the%20modern-roof%20gallery%20reference#quote" class="font-bold text-brand hover:text-electric">Ask about this look</a></div>
-            </article>
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="tiles">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Modern roof reference" data-gallery-description="Use this roof shape and finish as a starting point when explaining the look you want.">
+                <img src="roofing-house.png" alt="Illustrative modern home roofing" class="gallery-image h-full w-full object-cover object-[63%_center]">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Q Tile inspiration</span><strong class="mt-2 text-lg">Modern roof reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
 
-            <article class="gallery-entry overflow-hidden rounded-[8px_28px_28px_28px] bg-white shadow-[0_16px_45px_rgba(9,38,83,.09)] lg:col-span-5" data-gallery-item="ibr">
-              <a href="services.html#ibr" class="block overflow-hidden bg-[#dcecff]"><img src="Warmly lit stone house cutout.png" alt="Illustrative home with dark metal roofing" class="gallery-image h-[380px] w-full object-cover object-[67%_center]"></a>
-              <div class="p-6 sm:p-8"><span class="text-xs font-bold uppercase tracking-[0.14em] text-brand">Roofing inspiration</span><h3 class="mt-2 text-2xl font-bold">Dark-finish reference</h3><p class="mt-3 leading-7 text-ink/55">Screen colour varies. Ask which physical finish samples or stock colours can be confirmed.</p><a href="contact.html?product=IBR%20Roofing%20Sheets&amp;note=Interested%20in%20the%20dark-finish%20gallery%20reference#quote" class="mt-5 inline-flex font-bold text-brand hover:text-electric">Ask about this look</a></div>
-            </article>
+            <figure class="gallery-entry group relative aspect-square overflow-hidden rounded-2xl bg-[#dcecff] shadow-[0_12px_32px_rgba(9,38,83,.10)]" data-gallery-item="ibr">
+              <button type="button" class="h-full w-full text-left" data-gallery-modal-trigger data-gallery-title="Green metal roof reference" data-gallery-description="Illustrative metal roofing colour reference. Confirm physical samples and current stock before ordering.">
+                <img src="gallery-roof-3.jpg" alt="Illustrative building with green metal roofing sheets" class="gallery-image h-full w-full object-cover object-center">
+                <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-5 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#72b9ff]">IBR inspiration</span><strong class="mt-2 text-lg">Green metal roof reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Click to view full screen</span></span>
+              </button>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+     
+
+      
+      <section class="bg-white px-5 py-20 sm:px-10 lg:py-28">
+        <div class="mx-auto max-w-[1320px]">
+          <div class="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
+            <div>
+              <span class="section-kicker">How it works</span>
+              <h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">From product to quotation in three clear steps.</h2>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-3">
+              <div class="border-l-2 border-electric pl-5">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand">Step one</span>
+                <h3 class="mt-2 text-xl font-bold">Choose a product</h3>
+                <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">IBR sheets, Q Tiles or concrete nails.</p>
+              </div>
+              <div class="border-l-2 border-electric pl-5">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand">Step two</span>
+                <h3 class="mt-2 text-xl font-bold">Share requirements</h3>
+                <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">Quantity, measurements, colour and project location.</p>
+              </div>
+              <div class="border-l-2 border-roofing pl-5">
+                <span class="text-xs font-bold uppercase tracking-widest text-roofing">Step three</span>
+                <h3 class="mt-2 text-xl font-bold">Contact the team</h3>
+                <p class="mt-2 text-lg leading-8 text-ink/60 sm:text-xl">Confirm current options and receive a quotation.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="bg-white px-5 py-20 sm:px-10 lg:py-28">
-        <div class="relative mx-auto max-w-[1180px] overflow-hidden rounded-[32px] bg-brand px-7 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
-          <div class="pointer-events-none absolute -right-24 -top-28 h-96 w-96 rounded-full border-[70px] border-white/10"></div>
-          <div class="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><span class="text-sm font-bold text-white/65">Help us understand the look</span><h2 class="mt-4 max-w-3xl text-4xl font-semibold leading-[1.03] tracking-[-0.04em] sm:text-5xl">Have a photo of the roofing style you want?</h2><p class="mt-5 max-w-2xl text-lg leading-8 text-white/72">Email Wakatendeka and tell us what material, colour and quantity you are considering.</p></div><a href="mailto:wakatendekaroofing@gmail.com?subject=Roofing%20style%20enquiry" class="inline-flex min-h-14 items-center justify-center rounded-full bg-white px-7 font-bold text-ink transition hover:bg-[#e8f3ff]">Start an email</a></div>
+        <div class="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[.65fr_1.35fr]">
+          <div>
+            <span class="section-kicker">Common questions</span>
+            <h2 class="mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">A useful answer before you enquire.</h2>
+            <p class="mt-5 text-lg leading-8 text-ink/60 sm:text-xl">For current sizes, colours, stock and prices, speak directly to our team.</p>
+          </div>
+          <div class="divide-y divide-[#d9e4f3] border-y border-[#d9e4f3]">
+            <details class="group py-6" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">Which roofing profiles do you sell?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary>
+              <p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Wakatendeka's confirmed categories are IBR Roofing Sheets and Q Tiles, alongside Concrete Nails. Ask the team about the options currently available.</p>
+            </details>
+            <details class="group py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">How do I request a quote?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary>
+              <p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Send the product name, dimensions if known, quantity, preferred colour, project location and a contact number.</p>
+            </details>
+            <details class="group py-6">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">Where is the shop?<span class="text-2xl text-brand transition group-open:rotate-45">+</span></summary>
+              <p class="max-w-2xl pt-4 text-lg leading-8 text-ink/65 sm:text-xl">Visit Wakatendeka at 8 Swanesa Close, Nyakamete, Mutare. Call before visiting if you need to confirm current product availability.</p>
+            </details>
+          </div>
         </div>
       </section>
 
-      <footer class="bg-ink px-5 pb-8 pt-14 text-white sm:px-10"><div class="mx-auto max-w-[1320px]"><div class="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 sm:flex-row sm:items-end"><img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-24 w-auto rounded-xl bg-white p-2 object-contain"><nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65" aria-label="Footer navigation"><a href="index.html" class="hover:text-white">Home</a><a href="services.html" class="hover:text-white">Products</a><a href="about.html" class="hover:text-white">About</a><a href="gallery.html" class="text-white">Gallery</a><a href="contact.html" class="hover:text-white">Contact</a></nav></div><div class="flex flex-col justify-between gap-3 pt-6 text-xs text-white/45 sm:flex-row"><p>&copy; 2026 Wakatendeka Roofing and Building Supplies.</p><p>Quality materials. Stronger structures. Brighter tomorrows.</p></div></div></footer>
+      <section id="quote" class="bg-[#092653] px-5 py-8 text-white sm:px-10">
+        <div class="relative mx-auto max-w-[1320px] overflow-hidden rounded-[32px] bg-brand px-6 py-14 sm:px-10 lg:px-16 lg:py-20">
+          <div class="absolute -right-20 -top-32 h-96 w-96 rounded-full border-[70px] border-white/10"></div>
+          <div class="absolute -bottom-32 right-[28%] h-72 w-72 rounded-full bg-electric/30 blur-3xl"></div>
+          <div class="relative z-10 grid gap-12 lg:grid-cols-[1fr_.85fr] lg:items-end">
+            <div>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/70"><span class="h-2 w-2 rounded-full bg-roofing"></span>Start an enquiry</span>
+              <h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.03] tracking-[-0.04em] sm:text-5xl lg:text-6xl">Ready to plan your roof?</h2>
+              <p class="mt-5 max-w-2xl text-lg leading-8 text-white/75 sm:text-xl">Tell us which materials you need and we'll help you with the next step.</p>
+            </div>
+            <div class="grid gap-3">
+              <a href="tel:0771407179" class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur transition hover:bg-white/20"><span><small class="block uppercase tracking-widest text-white/55">Call us</small><strong class="mt-1 block">0771 407 179 / 0717 154 689</strong></span><span class="text-2xl">↗</span></a>
+              <a href="mailto:wakatendekaroofing@gmail.com" class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur transition hover:bg-white/20"><span><small class="block uppercase tracking-widest text-white/55">Email us</small><strong class="mt-1 block break-all">wakatendekaroofing@gmail.com</strong></span><span class="text-2xl">↗</span></a>
+              <div class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur"><span><small class="block uppercase tracking-widest text-white/55">Visit us</small><strong class="mt-1 block">8 Swanesa Close, Nyakamete, Mutare</strong></span><span class="text-2xl">⌖</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-[#092653] px-5 pb-8 pt-14 text-white sm:px-10">
+        <div class="mx-auto max-w-[1320px]">
+          <div class="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 sm:flex-row sm:items-end">
+            <img src="logo.png" alt="Wakatendeka Roofing and Building Supplies" class="h-24 w-auto rounded-xl bg-white p-2 object-contain" />
+            <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65" aria-label="Footer navigation">
+              <a href="#" class="hover:text-white">Home</a>
+              <a href="services.html" class="hover:text-white">Products</a>
+              <a href="about.html" class="hover:text-white">About</a>
+              <a href="gallery.html" class="hover:text-white">Gallery</a>
+              <a href="#quote" class="hover:text-white">Contact</a>
+            </nav>
+          </div>
+          <div class="flex flex-col justify-between gap-3 pt-6 text-xs text-white/45 sm:flex-row">
+            <p>© 2026 Wakatendeka Roofing and Building Supplies.</p>
+            <p>Quality materials. Stronger structures. Brighter tomorrows.</p>
+          </div>
+        </div>
+      </footer>
     </main>
     <script src="script.js"></script>
   </body>
