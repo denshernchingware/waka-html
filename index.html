@@ -128,7 +128,7 @@
 
           <nav class="hidden items-center gap-9 text-[14px] font-medium text-ink/80 lg:flex" aria-label="Main navigation">
             <a href="#" class="transition hover:text-electric">Home</a>
-            <a href="#about" class="transition hover:text-electric">About</a>
+            <a href="about.html" class="transition hover:text-electric">About</a>
             <a href="#services" class="flex items-center gap-1.5 transition hover:text-electric">Services <span class="text-xs">⌄</span></a>
             <a href="gallery.html" class="transition hover:text-electric">Gallery</a>
             <a href="contact.html" class="transition hover:text-electric">Contact</a>
@@ -149,7 +149,7 @@
         <div id="mobileMenu" class="absolute left-5 right-5 top-24 z-40 hidden rounded-3xl bg-white p-5 shadow-xl lg:hidden">
           <nav class="flex flex-col gap-1 font-medium">
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#">Home</a>
-            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#about">About</a>
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="about.html">About</a>
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#services">Services</a>
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="gallery.html">Gallery</a>
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="contact.html">Contact</a>
@@ -335,12 +335,7 @@
               <span class="section-kicker">Product gallery</span>
               <h2 class="mt-4 text-4xl font-semibold tracking-[-0.04em] text-ink sm:text-5xl">Roofing inspiration</h2>
             </div>
-            <div class="flex flex-wrap gap-x-7 gap-y-4 text-sm font-medium" aria-label="Filter gallery">
-              <button type="button" class="gallery-filter" data-gallery-filter="all" aria-pressed="true">All</button>
-              <button type="button" class="gallery-filter" data-gallery-filter="ibr" aria-pressed="false">IBR Sheets</button>
-              <button type="button" class="gallery-filter" data-gallery-filter="tiles" aria-pressed="false">Q Tiles</button>
-              <button type="button" class="gallery-filter" data-gallery-filter="nails" aria-pressed="false">Concrete Nails</button>
-            </div>
+            <a href="gallery.html" class="inline-flex items-center gap-3 font-bold text-brand transition hover:text-electric">View full gallery <span class="text-xl">→</span></a>
           </div>
 
           <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="galleryGrid">
@@ -356,21 +351,10 @@
               <img src="inspiration-2.jpg" alt="Illustrative concrete nails and roofing products" class="h-full w-full object-cover object-[50%_54%] transition duration-500 group-hover:scale-105" />
               <figcaption class="absolute inset-x-5 bottom-5 translate-y-3 rounded-lg bg-white p-5 opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><span class="text-[10px] font-bold uppercase tracking-widest text-brand">Concrete Nails</span><strong class="mt-1 block text-lg text-ink">Building supply inspiration</strong><span class="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-brand">+</span></figcaption>
             </figure>
-            <figure class="group relative h-[390px] overflow-hidden rounded-lg bg-[#e8f3ff]" data-gallery-item="ibr">
-              <img src="Modern Zimbabwean Home With Blue Roof.png" alt="Illustrative home with blue metal roofing" class="h-full w-full object-cover object-[62%_center] transition duration-500 group-hover:scale-105" />
-              <figcaption class="absolute inset-x-5 bottom-5 translate-y-3 rounded-lg bg-white p-5 opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><span class="text-[10px] font-bold uppercase tracking-widest text-brand">IBR Sheets</span><strong class="mt-1 block text-lg text-ink">Blue roof inspiration</strong><span class="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-brand">+</span></figcaption>
-            </figure>
-            <figure class="group relative h-[390px] overflow-hidden rounded-lg bg-[#e8f3ff]" data-gallery-item="tiles">
-              <img src="roofing-house.png" alt="Illustrative modern home roofing" class="h-full w-full object-cover object-[63%_center] transition duration-500 group-hover:scale-105" />
-              <figcaption class="absolute inset-x-5 bottom-5 translate-y-3 rounded-lg bg-white p-5 opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><span class="text-[10px] font-bold uppercase tracking-widest text-roofing">Q Tiles</span><strong class="mt-1 block text-lg text-ink">Modern roof inspiration</strong><span class="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-brand">+</span></figcaption>
-            </figure>
-            <figure class="group relative h-[390px] overflow-hidden rounded-lg bg-[#e8f3ff]" data-gallery-item="ibr">
-              <img src="Warmly lit stone house cutout.png" alt="Illustrative premium metal roof" class="h-full w-full bg-[#dcecff] object-cover object-[68%_center] transition duration-500 group-hover:scale-105" />
-              <figcaption class="absolute inset-x-5 bottom-5 translate-y-3 rounded-lg bg-white p-5 opacity-0 shadow-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><span class="text-[10px] font-bold uppercase tracking-widest text-brand">IBR Sheets</span><strong class="mt-1 block text-lg text-ink">Metal roof inspiration</strong><span class="absolute right-5 top-1/2 -translate-y-1/2 text-2xl text-brand">+</span></figcaption>
-            </figure>
           </div>
 
           <p class="mt-8 text-center text-xs text-ink/45">Images are illustrative placeholders. Confirm actual products, colours and finishes with Wakatendeka.</p>
+          <div class="mt-8 text-center"><a href="gallery.html" class="brand-button inline-flex items-center gap-3 rounded-full px-7 py-3 font-bold text-white shadow-[0_8px_20px_rgba(7,86,181,.22)] transition hover:-translate-y-0.5 hover:brightness-110">View more <span class="text-xl">↗</span></a></div>
         </div>
       </section>
 
@@ -592,7 +576,7 @@
             <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65" aria-label="Footer navigation">
               <a href="#" class="hover:text-white">Home</a>
               <a href="#services" class="hover:text-white">Products</a>
-              <a href="#about" class="hover:text-white">About</a>
+              <a href="about.html" class="hover:text-white">About</a>
               <a href="gallery.html" class="hover:text-white">Gallery</a>
               <a href="#quote" class="hover:text-white">Contact</a>
             </nav>
