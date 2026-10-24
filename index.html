@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Roofora premium roofing services" />
+    <title>Roofora | Smart Roofing for Modern Homes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-sans: "DM Sans", sans-serif;
+        --color-ink: #19191b;
+        --color-electric: #526ee8;
+      }
+
+      @layer base {
+        body {
+          @apply m-0 bg-[#eef3f8] font-sans text-ink antialiased;
+        }
+
+        button, a {
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+
+      .hero-sky {
+        background:
+          linear-gradient(to bottom, transparent 0 72%, rgba(225, 237, 247, .78) 82%, #e1edf7 100%),
+          url("Modern Zimbabwean Home With Blue Roof.png") top center / 100% auto no-repeat,
+          #e1edf7;
+      }
+
+      .glass-panel {
+        background: linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,.13));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .42);
+        backdrop-filter: blur(12px);
+      }
+
+      .soft-shadow {
+        box-shadow: 0 22px 60px rgba(34, 64, 92, .13);
+      }
+
+      .roof-swatch {
+        background-color: #243d51;
+        background-image: repeating-linear-gradient(115deg, transparent 0 7px, rgba(255,255,255,.28) 8px, transparent 9px 17px);
+      }
+
+      .shingle-swatch {
+        background-color: #445264;
+        background-image: repeating-linear-gradient(90deg, transparent 0 8px, rgba(10,18,28,.32) 9px 10px);
+      }
+
+      .stone-swatch {
+        background-color: #786b61;
+        background-image: radial-gradient(#b8a89b 22%, transparent 24%), radial-gradient(#514943 20%, transparent 23%);
+        background-position: 0 0, 7px 8px;
+        background-size: 15px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="min-h-screen">
+      <section class="hero-sky relative min-h-screen w-full overflow-hidden bg-white lg:min-h-[900px]">
+        <header class="relative z-50 mx-auto mt-4 flex h-16 w-[calc(100%-32px)] max-w-[1400px] items-center justify-between rounded-full border border-white/60 bg-white/55 px-3 shadow-[0_12px_35px_rgba(42,73,103,.12)] backdrop-blur-xl sm:w-[calc(100%-40px)] sm:px-4 lg:mt-5 lg:h-[72px] lg:px-5">
+          <a href="#" class="flex items-center gap-2.5 text-xl font-semibold tracking-[-0.04em] text-ink" aria-label="Roofora home">
+            <svg viewBox="0 0 38 32" class="h-8 w-9" fill="none" aria-hidden="true">
+              <rect x="1" y="2" width="16" height="13" rx="6.5" fill="currentColor"/>
+              <rect x="21" y="2" width="16" height="13" rx="6.5" fill="currentColor"/>
+              <rect x="1" y="18" width="16" height="13" rx="6.5" fill="currentColor"/>
+              <rect x="21" y="18" width="16" height="13" rx="6.5" fill="currentColor"/>
+            </svg>
+            Roofora
+          </a>
+
+          <nav class="hidden items-center gap-9 text-[14px] font-medium text-[#27313a] lg:flex" aria-label="Main navigation">
+            <a href="#" class="transition hover:text-electric">Home</a>
+            <a href="#about" class="transition hover:text-electric">About</a>
+            <a href="#services" class="flex items-center gap-1.5 transition hover:text-electric">Services <span class="text-xs">⌄</span></a>
+            <a href="#areas" class="flex items-center gap-1.5 transition hover:text-electric">Areas <span class="text-xs">⌄</span></a>
+            <a href="#projects" class="transition hover:text-electric">Projects</a>
+          </nav>
+
+          <a href="#quote" class="hidden items-center gap-3 rounded-full bg-ink py-2 pl-5 pr-2 text-sm font-semibold text-white transition hover:bg-[#303035] sm:flex">
+            Get Free Quote
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-electric" aria-hidden="true">↗</span>
+          </a>
+
+          <button id="menuButton" class="grid h-10 w-10 place-items-center rounded-full bg-ink text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </header>
+
+        <div id="mobileMenu" class="absolute left-5 right-5 top-24 z-40 hidden rounded-3xl bg-white p-5 shadow-xl lg:hidden">
+          <nav class="flex flex-col gap-1 font-medium">
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#">Home</a>
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#about">About</a>
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#services">Services</a>
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#areas">Areas</a>
+            <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#projects">Projects</a>
+          </nav>
+        </div>
+
+        <div class="relative mx-auto max-w-[1320px] px-5 pb-48 pt-8 sm:px-10 sm:pt-12 lg:px-10 lg:pb-0 lg:pt-10 xl:px-0">
+          <div class="glass-panel relative z-20 max-w-[800px] rounded-[28px] px-6 py-9 sm:px-10 sm:py-12 lg:min-h-[570px] lg:px-12 lg:py-12 xl:px-14">
+            <div class="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold text-[#5d6066] shadow-sm">
+              <span class="h-2 w-2 rounded-full bg-electric"></span>
+              Trusted Roofing Experts
+            </div>
+
+            <h1 class="mt-6 max-w-[650px] text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[64px] lg:text-[72px]">
+              Smart Roofing for Modern Homes.
+            </h1>
+            <p class="mt-6 max-w-[550px] text-base leading-7 text-[#555c63] sm:text-lg">
+              Our expert roofing services are designed to protect your home with quality and precision.
+            </p>
+            <a href="#quote" class="mt-8 inline-flex items-center gap-4 rounded-full bg-ink py-2 pl-6 pr-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-xl">
+              Get Started Now
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-electric text-base" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="relative z-10 mt-[-30px] ml-auto aspect-[16/9] w-[115%] -mr-[15%] sm:mt-[-90px] lg:absolute lg:right-[calc(50%-50vw)] lg:top-[35px] lg:mt-0 lg:mr-0 lg:h-[690px] lg:w-[80vw] lg:max-w-none lg:aspect-auto">
+            <div class="absolute inset-0" aria-label="Modern Zimbabwean home with a blue roof">
+            </div>
+
+            <div class="absolute right-[13%] top-[18%] hidden items-center gap-2 lg:flex">
+              <span class="h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
+            </div>
+            <div class="absolute left-[36%] top-[43%] hidden items-center lg:flex">
+              <span class="h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
+              <span class="ml-2 border-l border-dashed border-white/70 pl-4 text-xs text-white/90">Boral Steel Roofing</span>
+            </div>
+
+            <div class="soft-shadow absolute bottom-7 right-4 flex items-center rounded-full border border-white/30 bg-white/55 px-3 py-2 backdrop-blur-md sm:bottom-10 sm:right-8 lg:bottom-[140px] lg:right-[10%]">
+              <div class="flex -space-x-2">
+                <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-[#bdc7ca] text-xs font-bold text-white">JB</span>
+                <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-[#8d989d] text-xs font-bold text-white">MA</span>
+                <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-[#69767c] text-xs font-bold text-white">RK</span>
+              </div>
+              <div class="ml-3 pr-2 text-[11px] leading-tight text-[#555b60]">
+                <div class="font-bold text-[#f2bb17]">★★★★★ <span class="text-[#555b60]">4.9/5</span></div>
+                <div>Based on 240 Verified Reviews</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="soft-shadow absolute bottom-[82px] left-5 z-30 w-[280px] rounded-[26px] bg-white p-5 sm:bottom-[42px] sm:left-10 sm:w-[350px] lg:bottom-[-140px] lg:w-[370px] xl:left-0" aria-label="Roof style generator preview">
+            <div class="flex items-center justify-between">
+              <h2 class="text-sm font-bold">Modern Roof Style</h2>
+              <span class="text-xs text-[#8a8e94]"><b class="text-electric">■</b> 2:40</span>
+            </div>
+            <div class="mt-4 flex gap-2">
+              <span class="roof-swatch h-12 w-12 rounded-xl"></span>
+              <span class="shingle-swatch h-12 w-12 rounded-xl"></span>
+              <span class="stone-swatch h-12 w-12 rounded-xl"></span>
+            </div>
+            <div class="mt-3 rounded-xl border border-[#e6e7e9] p-3 text-xs leading-4 text-[#70747a]">
+              Upload 3 new roofing materials photos, videos and describe the vibe.
+            </div>
+            <div class="mt-3 flex gap-2 text-[10px]">
+              <span class="rounded-full bg-[#f1f1f2] px-3 py-1.5">Suggest</span>
+              <span class="rounded-full bg-[#f1f1f2] px-3 py-1.5">Image</span>
+              <span class="rounded-full bg-[#f1f1f2] px-3 py-1.5">Video</span>
+              <span class="ml-auto rounded-full bg-ink px-3 py-1.5 text-white">Generate</span>
+            </div>
+          </aside>
+        </div>
+
+      </section>
+    </main>
+
+    <script>
+      const menuButton = document.querySelector('#menuButton');
+      const mobileMenu = document.querySelector('#mobileMenu');
+
+      menuButton.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!open));
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
