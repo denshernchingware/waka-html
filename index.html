@@ -27,7 +27,7 @@
         }
 
         body {
-          @apply m-0 bg-[#eef3fa] font-sans text-ink antialiased;
+          @apply m-0 overflow-x-hidden bg-[#eef3fa] font-sans text-ink antialiased;
         }
 
         button, a {
@@ -151,6 +151,13 @@
       .hero-load-delay-2 { animation-delay: 220ms; }
       .hero-load-delay-3 { animation-delay: 360ms; }
       .hero-image-motion { animation: hero-drift 12s ease-in-out infinite alternate; }
+
+      @media (max-width: 1023px) {
+        .hero-sky {
+          background: linear-gradient(to bottom, #e8f3ff 0%, #e8f3ff 100%);
+        }
+
+      }
       .hero-marker { animation: marker-pulse 2.8s ease-in-out infinite; }
 
       .motion-ready [data-reveal] {
@@ -228,7 +235,7 @@
             <span class="grid h-8 w-8 place-items-center rounded-full bg-electric" aria-hidden="true">↗</span>
           </a>
 
-          <button id="menuButton" class="grid h-10 w-10 place-items-center rounded-full bg-brand text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
+          <button id="menuButton" type="button" class="grid h-10 w-10 place-items-center rounded-full bg-brand text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <path d="M4 8h16M4 16h16" />
             </svg>
@@ -236,7 +243,7 @@
         </header>
 
         <div id="mobileMenu" class="absolute left-5 right-5 top-24 z-40 hidden rounded-3xl bg-white p-5 shadow-xl lg:hidden">
-          <nav class="flex flex-col gap-1 font-medium">
+           <nav class="flex flex-col gap-1 font-medium" aria-label="Mobile navigation">
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="#">Home</a>
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="about.html">About</a>
             <a class="rounded-xl px-4 py-3 hover:bg-slate-50" href="services.html">Services</a>
@@ -247,14 +254,14 @@
 
         <div class="hero-foreground pointer-events-none absolute inset-0 z-30 hidden lg:block" aria-hidden="true"></div>
 
-        <div class="relative mx-auto max-w-[1320px] px-5 pb-48 pt-8 sm:px-10 sm:pt-12 lg:px-10 lg:pb-0 lg:pt-10 xl:px-0">
+         <div class="relative mx-auto max-w-[1320px] px-5 pb-20 pt-8 sm:px-10 sm:pb-32 sm:pt-12 lg:px-10 lg:pb-0 lg:pt-10 xl:px-0">
           <div class="glass-panel hero-panel-load relative z-20 flex max-w-[800px] flex-col items-start justify-center rounded-[28px] px-6 py-9 sm:px-10 sm:py-12 lg:min-h-[570px] lg:translate-y-6 lg:px-12 lg:py-12 xl:px-14">
             <div class="hero-load hero-load-delay-2 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-ink/70 shadow-sm">
               <span class="h-2 w-2 rounded-full bg-roofing"></span>
               Trusted Roofing Experts
             </div>
 
-            <h1 class="hero-load hero-load-delay-2 mt-6 max-w-[650px] text-[46px] font-medium leading-[0.98] tracking-[-0.055em] text-ink sm:text-[64px] lg:text-[72px]">
+             <h1 class="hero-load hero-load-delay-2 mt-6 max-w-[650px] text-[42px] font-medium leading-[1.01] tracking-[-0.055em] text-ink sm:text-[64px] sm:leading-[0.98] lg:text-[72px]">
               Smart Roofing for Modern Homes.
             </h1>
             <p class="hero-load hero-load-delay-3 mt-6 max-w-[550px] text-base leading-7 text-ink/70 sm:text-lg">
@@ -266,9 +273,8 @@
             </a>
           </div>
 
-          <div class="hero-image-motion relative z-10 mt-[-30px] ml-auto aspect-[16/9] w-[115%] -mr-[15%] sm:mt-[-90px] lg:absolute lg:right-[calc(50%-50vw)] lg:top-[35px] lg:mt-0 lg:mr-0 lg:h-[690px] lg:w-[80vw] lg:max-w-none lg:aspect-auto">
-            <div class="absolute inset-0" aria-label="Modern Zimbabwean home with a blue roof">
-            </div>
+           <div class="hero-image-motion relative z-10 mt-6 ml-auto aspect-[16/9] w-full overflow-hidden rounded-[24px] shadow-[0_22px_55px_rgba(9,38,83,.16)] sm:mt-[-40px] sm:w-[110%] sm:-mr-[10%] lg:absolute lg:right-[calc(50%-50vw)] lg:top-[35px] lg:mt-0 lg:mr-0 lg:h-[690px] lg:w-[80vw] lg:max-w-none lg:rounded-none lg:aspect-auto lg:shadow-none">
+             <img src="Modern Zimbabwean Home With Blue Roof.png" alt="Modern Zimbabwean home with a blue roof" class="h-full w-full object-cover lg:hidden">
 
             <div class="absolute right-[13%] top-[18%] hidden items-center gap-2 lg:flex">
               <span class="hero-marker h-4 w-4 rounded-full border-4 border-white/70 bg-white shadow-[0_0_0_7px_rgba(255,255,255,.2)]"></span>
@@ -278,7 +284,7 @@
               <span class="ml-2 border-l border-dashed border-white/70 pl-4 text-xs text-white/90">Boral Steel Roofing</span>
             </div>
 
-            <div class="soft-shadow absolute bottom-7 right-4 flex items-center rounded-full border border-white/30 bg-white/55 px-3 py-2 backdrop-blur-md sm:bottom-10 sm:right-8 lg:bottom-[140px] lg:right-[10%]">
+             <div class="soft-shadow absolute bottom-7 right-[16%] flex items-center rounded-full border border-white/30 bg-white/55 px-3 py-2 backdrop-blur-md sm:bottom-10 sm:right-[16%] lg:bottom-[140px] lg:right-[10%]">
               <div class="flex -space-x-2">
                 <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-electric text-xs font-bold text-white">JB</span>
                 <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-white bg-brand text-xs font-bold text-white">MA</span>
@@ -425,21 +431,21 @@
           </div>
 
           <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="galleryGrid">
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles" data-reveal data-reveal-delay="1">
+             <figure class="group relative h-[min(360px,82vw)] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)] sm:h-[360px]" data-gallery-item="tiles" data-reveal data-reveal-delay="1">
               <a href="gallery.html#gallery" class="block h-full w-full">
                 <img src="gallery-roof-1.png" alt="Illustrative worker fitting dark roof tiles" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-xl">Tile roofing work reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
               </a>
             </figure>
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="tiles" data-reveal data-reveal-delay="2">
+             <figure class="group relative h-[min(360px,82vw)] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)] sm:h-[360px]" data-gallery-item="tiles" data-reveal data-reveal-delay="2">
               <a href="gallery.html#gallery" class="block h-full w-full">
                 <img src="gallery-roof-2.jpeg" alt="Illustrative roofing installer working on a pitched roof" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#ff8f85]">Roofing inspiration</span><strong class="mt-2 text-xl">Roof installation reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
               </a>
             </figure>
-            <figure class="group relative h-[360px] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)]" data-gallery-item="ibr" data-reveal data-reveal-delay="3">
+             <figure class="group relative h-[min(360px,82vw)] overflow-hidden rounded-2xl bg-[#e8f3ff] shadow-[0_14px_38px_rgba(9,38,83,.10)] sm:h-[360px]" data-gallery-item="ibr" data-reveal data-reveal-delay="3">
               <a href="gallery.html#gallery" class="block h-full w-full">
-                <img src="gallery-roof-1.png" alt="Illustrative building with green metal roofing sheets" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
+                 <img src="gallery-roof-3.jpg" alt="Illustrative building with green metal roofing sheets" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.035]" />
                 <span class="absolute inset-0 flex translate-y-3 flex-col justify-end bg-gradient-to-t from-ink via-ink/55 to-transparent p-6 text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><span class="text-[10px] font-bold uppercase tracking-[0.15em] text-[#72b9ff]">IBR inspiration</span><strong class="mt-2 text-xl">Green metal roof reference</strong><span class="mt-2 text-sm leading-6 text-white/70">Illustrative image. View the full gallery.</span></span>
               </a>
             </figure>
